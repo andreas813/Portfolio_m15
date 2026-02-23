@@ -1,0 +1,233 @@
+@font-face {
+    font-family: "FiraCode";
+    src: url("../assets/fonts/FiraCode-Regular.woff2") format("woff2");
+    font-weight: 300 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Karla";
+    src: url("../assets/fonts/Karla-VariableFont_wght.woff2") format("woff2");
+    font-weight: 200 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: "Karla", system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: white;
+    background-color: #1C1C1C;
+}
+
+header {
+    font-family: "FiraCode";
+    font-size: 20px;
+    height: 98px;
+    position: absolute;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 25%, rgba(0, 0, 0, 0.0) 100%);
+    z-index: 8;
+}
+
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin-inline: auto;
+    box-sizing: border-box;
+}
+
+.logo img {
+    height: 48px;
+    width: auto;
+}
+
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(to right top, #1C1C1C 40%, #08463B 100%);
+    position: relative;
+    z-index: 0;
+}
+
+.hero-inner {
+    position: relative;
+    text-align: center;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.nav-links a,
+.link {
+    text-decoration: none;
+    color: unset;
+}
+
+.nav-links a:hover,
+.link:hover {
+    color: #3DCFB6;
+}
+
+.hero-role {
+    font-size: 40px;
+    font-family: "FiraCode";
+}
+
+.hero-title {
+    font-size: 128px;
+    font-weight: bold;
+}
+
+.button {
+    border: 1px solid white;
+    padding: 12px 24px 12px 24px;
+    border-radius: 100px;
+}
+
+.button:hover {
+    border-color: #3DCFB6;
+}
+
+.ribbon {
+    width: 140vw;
+    max-width: none;
+    overflow: hidden;
+    position: absolute;
+    bottom: 64px;
+    left: -16px;
+    background: #FFFFFF1F;
+    -webkit-backdrop-filter: blur(5.3px);
+    backdrop-filter: blur(5.3px);
+    height: 62px;
+    font-size: 32px;
+    color: #3DCFB6;
+    line-height: 120%;
+    transform: rotate(-3deg);
+    transform-origin: center;
+    z-index: 4;
+}
+
+.ribbon-track {
+    white-space: nowrap;
+    will-change: transform;
+    animation: ribbon-scroll var(--ribbon-duration, 16s) linear infinite;
+    transform: translate3d(0, 0, 0);
+}
+
+.ribbon-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+@keyframes ribbon-scroll {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.hero-email {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+}
+
+.hero-bar {
+    width: 1px;
+    height: 186px;
+    background-color: white;
+}
+
+.scroll-bar {
+    width: 1px;
+    height: 240px;
+    background-color: #3DCFB6;
+}
+
+.scroll-button {
+    border: 1px solid #3DCFB6;
+    border-radius: 32px;
+    padding: 10px;
+}
+
+.arrow-img {
+    animation: .5s linear 0s infinite alternate bounce;
+    transform-origin: center;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(8px);
+    }
+
+    to {
+        transform: translateY(-2px);
+    }
+}
+
+.hero-links {
+    z-index: 256;
+}
+
+.lang-switch {
+    position: relative;
+    border-radius: 100px;
+    border: 1px solid #3DCFB6;
+    font-family: "FiraCode";
+    line-height: 120%;
+    width: 84px;
+    height: 28px;
+    font-size: 16px;
+    text-align: center;
+    padding: 2px;
+}
+
+.lang-switch:hover {
+    border-color: white;
+}
+
+.lang-option {
+    position: relative;
+    z-index: 2;
+    border: none;
+    background: none;
+    color: white;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: color 0.25s ease;
+}
+
+.lang-option:focus {
+    outline: none;
+}
+
+.lang-option:not(.active) {
+    color: #3DCFB680;
+    font-weight: bold;
+}
+
+.lang-option:not(.active):hover {
+    color: #3DCFB6;
+}
+
+.lang-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(50%);
+    height: calc(100%);
+    background: #3DCFB6;
+    border-radius: 100px;
+    transition: transform 0.25s ease;
+    z-index: 1;
+}
+
+.lang-switch[data-active="de"] .lang-indicator {
+    transform: translateX(100%);
+}
