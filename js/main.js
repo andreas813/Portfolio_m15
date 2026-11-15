@@ -181,22 +181,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalClose2 = document.getElementById("modal-close-2");
     const modalBackdrop = document.getElementById("modal-backdrop");
 
-    function openModal(title, htmlContent) {
-        if (modal && modalTitle && modalBody) {
-            modalTitle.textContent = title;
-            modalBody.innerHTML = htmlContent;
-            modal.classList.add("show"); // Angabe je nach CSS, meistens display block oder active class
-            modal.setAttribute("aria-hidden", "false");
-        }
-    }
-
-    function closeModal() {
-        if (modal) {
-            modal.classList.remove("show");
-            modal.setAttribute("aria-hidden", "true");
-        }
-    }
-
     if (modalClose) modalClose.addEventListener("click", closeModal);
     if (modalClose2) modalClose2.addEventListener("click", closeModal);
     if (modalBackdrop) modalBackdrop.addEventListener("click", closeModal);
@@ -246,18 +230,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function openModal(title, htmlContent) {
-        if (modal && modalTitle && modalBody) {
-            modalTitle.textContent = title;
-            modalBody.innerHTML = htmlContent;
-            modal.classList.add("open");
-            modal.setAttribute("aria-hidden", "false");
-        }
+        if (!modal || !modalTitle || !modalBody) return;
+
+        modalTitle.textContent = title;
+        modalBody.innerHTML = htmlContent;
+        modal.classList.add("open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+        modalClose?.focus();
     }
 
     function closeModal() {
-        if (modal) {
-            modal.classList.remove("open");
-            modal.setAttribute("aria-hidden", "true");
-        }
+        if (!modal) return;
+
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
     }
+
+    // Allow the dialog to be dismissed with the Escape key.
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && modal?.classList.contains("open")) {
+            closeModal();
+        }
+    });
 });
