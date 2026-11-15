@@ -25,9 +25,9 @@
                     <span class="lang-indicator"></span>
                 </div>
                 <div class="nav-links d-flex gap-4">
-                    <a href="#about">About me</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#projects">Projects</a>
+                    <a href="#about" data-i18n="nav_about">About me</a>
+                    <a href="#skills" data-i18n="nav_skills">Skills</a>
+                    <a href="#projects" data-i18n="nav_projects">Projects</a>
                 </div>
             </div>
             <div class="logo" aria-hidden="true">
@@ -46,11 +46,11 @@
                     <div class="scroll-bar"> </div>
                 </div>
                 <div class="hero-content d-flex flex-column justify-content-center">
-                    <p class="hero-role m-0">Frontend Developer</p>
+                    <p class="hero-role m-0" data-i18n="hero_role">Frontend Developer</p>
                     <h1 class="hero-title m-0">Andreas</h1>
                     <div class="hero-buttons d-flex justify-content-center gap-5 mt-3">
-                        <a class="button link" href="#projects">Check my work</a>
-                        <a class="button link" href="#contact">Contact me</a>
+                        <a class="button link" href="#projects" data-i18n="hero_btn_work">Check my work</a>
+                        <a class="button link" href="#contact" data-i18n="hero_btn_contact">Contact me</a>
                     </div>
                 </div>
                 <aside class="hero-links d-flex flex-column justify-content-end align-items-center gap-4">
@@ -71,13 +71,13 @@
             <div class="ribbon-wrapper" aria-hidden="true">
                 <div class="ribbon d-flex" aria-hidden="true">
                     <div class="ribbon-track d-inline-flex align-items-center gap-5" id="ribbonTrack">
-                        <span class="ribbon-item">Available for remote work</span>
+                        <span class="ribbon-item" data-i18n="ribbon_1">Available for remote work</span>
                         <span class="ribbon-sep">•</span>
-                        <span class="ribbon-item">Frontend Developer</span>
+                        <span class="ribbon-item" data-i18n="ribbon_2">Frontend Developer</span>
                         <span class="ribbon-sep">•</span>
-                        <span class="ribbon-item">Based in North Rhine-Westphalia</span>
+                        <span class="ribbon-item" data-i18n="ribbon_3">Based in North Rhine-Westphalia</span>
                         <span class="ribbon-sep">•</span>
-                        <span class="ribbon-item">Open to opportunities</span>
+                        <span class="ribbon-item" data-i18n="ribbon_4">Open to opportunities</span>
                         <span class="ribbon-sep">•</span>
                     </div>
                 </div>
@@ -90,14 +90,14 @@
                     <img src="assets/images/photo.webp" alt="Portrait of Andreas">
                 </div>
                 <div class="about-card">
-                    <div class="who">Who I am</div>
-                    <h2 class="section-title">About me</h2>
+                    <div class="who" data-i18n="about_tag">Who I am</div>
+                    <h2 class="section-title" data-i18n="about_title">About me</h2>
                     <div class="about-body">
-                        <p>Hey there, I'm Andreas! Privacy and security minded IT generalist with many years of hands-on experience in Linux administration and self-hosting, as well as ten years of technical testing experience in an industrial setting.</p>
+                        <p data-i18n="about_text">Hey there, I'm Andreas! Privacy and security minded IT generalist with many years of hands-on experience in Linux administration and self-hosting, as well as ten years of technical testing experience in an industrial setting.</p>
                         <ul>
-                            <li>Based in North Rhine-Westphalia — open to remote work in DE</li>
-                            <li>Independent volunteer administration, professionally active at the intersection of web development and API integration</li>
-                            <li>Analytical thinking, technical curiosity and quality-oriented approach</li>
+                            <li data-i18n="about_li1">Based in North Rhine-Westphalia — open to remote work in DE</li>
+                            <li data-i18n="about_li2">Independent volunteer administration, professionally active at the intersection of web development and API integration</li>
+                            <li data-i18n="about_li3">Analytical thinking, technical curiosity and quality-oriented approach</li>
                         </ul>
                     </div>
                 </div>
@@ -107,9 +107,9 @@
         <section id="skills" class="section skills">
             <div class="container skills-grid">
                 <div class="skills-card">
-                    <h3 class="skill-title">Skill Set</h3>
-                    <p class="muted">A short introduction of my current skills. Since I'm ready to learn new things, there may well be more to come on this topic.</p>
-                    <a class="btn btn-outline small" href="#contact">Let's Talk</a>
+                    <h3 class="skill-title" data-i18n="skills_title">Skill Set</h3>
+                    <p class="muted" data-i18n="skills_desc">A short introduction of my current skills. Since I'm ready to learn new things, there may well be more to come on this topic.</p>
+                    <a class="btn btn-outline small" href="#contact" data-i18n="skills_btn">Let's Talk</a>
                 </div>
                 <div class="skills-icons">
                     <div class="icon-item"><img src="assets/icons/html-64.svg" alt="HTML">
@@ -151,8 +151,8 @@
 
         <section id="projects" class="section projects">
             <div class="container">
-                <h2 class="section-title">Featured Projects</h2>
-                <p class="muted">Explore a selection of my work — interact with projects to see details.</p>
+                <h2 class="section-title" data-i18n="projects_title">Featured Projects</h2>
+                <p class="muted" data-i18n="projects_desc">Explore a selection of my work — interact with projects to see details.</p>
 
                 <div class="projects-list">
                     <div class="project-item" tabindex="0" data-preview="assets/images/project1.jpg" data-index="0" data-title="Join" data-tech="Angular | TypeScript | HTML | CSS | Firebase">
@@ -176,34 +176,30 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- <div class="project-preview" id="project-preview" aria-hidden="true">
-                    <img src="" alt="Project preview" id="project-preview-img">
-                </div> -->
             </div>
         </section>
 
         <section id="testimonials" class="section testimonials">
             <div class="container">
-                <h3 class="section-title">What my colleagues say about me</h3>
+                <h3 class="section-title" data-i18n="testimonials_title">What my colleagues say about me</h3>
 
                 <div class="testimonials-wrap">
                     <button class="slider-arrow prev" aria-label="Previous testimonial">‹</button>
 
                     <div class="testimonials">
                         <blockquote class="testimonial active">
-                            <p class="quote">Andreas has proven to be a reliable group partner. His technical skills and proactive approach were crucial to the success of our project.</p>
-                            <cite>Nick J. — Team Partner</cite>
+                            <p class="quote" data-i18n="test1_quote">Andreas has proven to be a reliable project partner. His technical skills and proactive approach were crucial to the success of our project.</p>
+                            <cite data-i18n="test1_cite">Nick J. — Project Partner</cite>
                         </blockquote>
 
                         <blockquote class="testimonial">
-                            <p class="quote">I had the good fortune of working with Andreas on a delivery. He was calm, competent, and delightful to work with.</p>
-                            <cite>Jana S. — Colleague</cite>
+                            <p class="quote" data-i18n="test2_quote">I had the good fortune of working with Andreas on a delivery. He was calm, competent, and delightful to work with.</p>
+                            <cite data-i18n="test2_cite">Jana S. — Colleague</cite>
                         </blockquote>
 
                         <blockquote class="testimonial">
-                            <p class="quote">Consistently delivered on time with great attention to detail and strong collaboration skills.</p>
-                            <cite>Thomas S. — Frontend Developer</cite>
+                            <p class="quote" data-i18n="test3_quote">Consistently delivered on time with great attention to detail and strong collaboration skills.</p>
+                            <cite data-i18n="test3_cite">Thomas S. — Frontend Developer</cite>
                         </blockquote>
                     </div>
 
@@ -215,33 +211,33 @@
         <section id="contact" class="section contact">
             <div class="container contact-grid">
                 <div class="contact-left">
-                    <h2 class="section-title big">Let's work together</h2>
-                    <p class="muted">Got a problem to solve? Encourage people to contact and describe the role you are interested in.</p>
+                    <h2 class="section-title big" data-i18n="contact_title">Let's work together</h2>
+                    <p class="muted" data-i18n="contact_desc">Got a problem to solve? Encourage people to contact and describe the role you are interested in.</p>
                 </div>
 
                 <form class="contact-form" action="contact.php" method="POST" novalidate>
                     <label class="form-row">
-                        <span class="form-label">What's your name?</span>
-                        <input type="text" name="name" required placeholder="Your name goes here">
+                        <span class="form-label" data-i18n="label_name">What's your name?</span>
+                        <input type="text" name="name" required placeholder="Your name goes here" data-i18n-placeholder="placeholder_name">
                     </label>
 
                     <label class="form-row">
-                        <span class="form-label">What's your email?</span>
-                        <input type="email" name="email" required placeholder="youremail@email.com">
+                        <span class="form-label" data-i18n="label_email">What's your email?</span>
+                        <input type="email" name="email" required placeholder="youremail@email.com" data-i18n-placeholder="placeholder_email">
                     </label>
 
                     <label class="form-row">
-                        <span class="form-label">How can I help you?</span>
-                        <textarea name="message" rows="4" placeholder="Hello Andreas, I am interested in..."></textarea>
+                        <span class="form-label" data-i18n="label_message">How can I help you?</span>
+                        <textarea name="message" rows="4" placeholder="Hello Andreas, I am interested in..." data-i18n-placeholder="placeholder_message"></textarea>
                     </label>
 
                     <label class="form-checkbox">
                         <input type="checkbox" name="privacy" required>
-                        <span>I’ve read the privacy policy and agree to the processing of my data as outlined.</span>
+                        <span data-i18n="privacy_text">I’ve read the privacy policy and agree to the processing of my data as outlined.</span>
                     </label>
 
                     <div class="form-actions">
-                        <button type="submit" class="button">Say Hello</button>
+                        <button type="submit" class="button" data-i18n="btn_submit" disabled>Say Hello</button>
                     </div>
                 </form>
             </div>
@@ -255,7 +251,7 @@
                 <div class="logo" aria-hidden="true">
                     <img src="assets/images/logo.svg" alt="logo">
                 </div>
-                <div class="muted">Web Developer — North Rhine-Westphalia Germany</div>
+                <div class="muted" data-i18n="footer_role">Web Developer — North Rhine-Westphalia Germany</div>
             </div>
             <div class="footer-center">Andreas Portfolio 2026</div>
             <div class="footer-right">
@@ -266,6 +262,7 @@
         </div>
     </footer>
 
+    <!-- Modals etc. -->
     <div id="project-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="project-modal-title">
         <div class="modal-backdrop" id="modal-backdrop"></div>
         <div class="modal-panel" role="document">
