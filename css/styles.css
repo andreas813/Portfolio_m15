@@ -231,3 +231,76 @@ header {
 .lang-switch[data-active="de"] .lang-indicator {
     transform: translateX(100%);
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.modal-panel {
+    background-color: #1C1C1C;
+    border: 1px solid #3DCFB6;
+    border-radius: 12px;
+    padding: 32px;
+    color: white;
+    max-width: 600px;
+    width: 90%;
+    box-sizing: border-box;
+}
+
+/* Footer Layout & Styling */
+.site-footer {
+    padding: 48px 0;
+    background-color: #1C1C1C;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Footer Links an Design anpassen (kein Standard-Blau/Unterstrich) */
+.site-footer a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.site-footer a:hover {
+    color: #3DCFB6;
+}
