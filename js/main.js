@@ -172,4 +172,92 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // 4. Legal & Project Modals Logic (User Story 4 & 8)
+    const modal = document.getElementById("project-modal");
+    const modalTitle = document.getElementById("project-modal-title");
+    const modalBody = document.getElementById("project-modal-body");
+    const modalClose = document.getElementById("modal-close");
+    const modalClose2 = document.getElementById("modal-close-2");
+    const modalBackdrop = document.getElementById("modal-backdrop");
+
+    function openModal(title, htmlContent) {
+        if (modal && modalTitle && modalBody) {
+            modalTitle.textContent = title;
+            modalBody.innerHTML = htmlContent;
+            modal.classList.add("show"); // Angabe je nach CSS, meistens display block oder active class
+            modal.setAttribute("aria-hidden", "false");
+        }
+    }
+
+    function closeModal() {
+        if (modal) {
+            modal.classList.remove("show");
+            modal.setAttribute("aria-hidden", "true");
+        }
+    }
+
+    if (modalClose) modalClose.addEventListener("click", closeModal);
+    if (modalClose2) modalClose2.addEventListener("click", closeModal);
+    if (modalBackdrop) modalBackdrop.addEventListener("click", closeModal);
+
+    // Impressum & Datenschutz Link-Listener
+    const imprintLink = document.getElementById("link-imprint");
+    const privacyLink = document.getElementById("link-privacy");
+
+    const legalTexts = {
+        imprint: {
+            title: "Impressum",
+            content: `
+                <p><strong>Angaben gemäß § 5 TMG / Pflichtangaben:</strong></p>
+                <p><strong>Name:</strong> Andreas<br>
+                <strong>Wohnhaft in:</strong> Nordrhein-Westfalen, Deutschland<br>
+                <strong>Kontakt:</strong> E-Mail über das Kontaktformular dieser Website</p>
+                <hr class="my-3">
+                <p><strong>Hinweis zum Projekt:</strong><br>
+                Diese Website ist ein studentisches Übungsprojekt im Rahmen einer Weiterbildung zum Frontend Developer. Es handelt sich hierbei um ein nicht-kommerzielles Portfolio ohne redaktionelle Inhalte oder den Verkauf von Waren und Dienstleistungen.</p>
+                <p><strong>Streitbeilegung:</strong><br>
+                Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+            `
+        },
+        privacy: {
+            title: "Datenschutzerklärung",
+            content: `
+                <p><strong>1. Datenschutz auf einen Blick</strong></p>
+                <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen.</p>
+                <p><strong>2. Hosting & Kontaktformular</strong></p>
+                <p>Diese Website wird im Rahmen eines Weiterbildungsprojekts betrieben. Wenn Sie mir per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben zur Bearbeitung der Anfrage gespeichert und nicht an Dritte weitergegeben.</p>
+            `
+        }
+    };
+
+    if (imprintLink) {
+        imprintLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            openModal(legalTexts.imprint.title, legalTexts.imprint.content);
+        });
+    }
+
+    if (privacyLink) {
+        privacyLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            openModal(legalTexts.privacy.title, legalTexts.privacy.content);
+        });
+    }
+
+    function openModal(title, htmlContent) {
+        if (modal && modalTitle && modalBody) {
+            modalTitle.textContent = title;
+            modalBody.innerHTML = htmlContent;
+            modal.classList.add("open");
+            modal.setAttribute("aria-hidden", "false");
+        }
+    }
+
+    function closeModal() {
+        if (modal) {
+            modal.classList.remove("open");
+            modal.setAttribute("aria-hidden", "true");
+        }
+    }
 });
