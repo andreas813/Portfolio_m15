@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="assets/libs/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/desktop-shell.css">
+    <link rel="stylesheet" href="css/desktop-content.css">
+    <link rel="stylesheet" href="css/desktop-experience.css">
     <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
 </head>
 
@@ -90,61 +93,77 @@
                 <div class="about-photo">
                     <img src="assets/images/photo.webp" alt="Portrait of Andreas">
                 </div>
-                <div class="about-card">
+                <div class="about-copy">
                     <div class="who" data-i18n="about_tag">Who I am</div>
-                    <h2 class="section-title" data-i18n="about_title">About me</h2>
-                    <div class="about-body">
-                        <p data-i18n="about_text">Hey there, I'm Andreas! Privacy and security minded IT generalist with many years of hands-on experience in Linux administration and self-hosting, as well as ten years of technical testing experience in an industrial setting.</p>
-                        <ul>
-                            <li data-i18n="about_li1">Based in North Rhine-Westphalia — open to remote work in DE</li>
-                            <li data-i18n="about_li2">Independent volunteer administration, professionally active at the intersection of web development and API integration</li>
-                            <li data-i18n="about_li3">Analytical thinking, technical curiosity and quality-oriented approach</li>
-                        </ul>
+                    <div class="about-card">
+                        <h2 class="section-title" data-i18n="about_title">About me</h2>
+                        <div class="about-body">
+                            <p data-i18n="about_text">Hey there, I'm Andreas! Privacy and security minded IT generalist with many years of hands-on experience in Linux administration and self-hosting, as well as ten years of technical testing experience in an industrial setting.</p>
+                            <ul>
+                                <li data-i18n="about_li1">Based in North Rhine-Westphalia — open to remote work in DE</li>
+                                <li data-i18n="about_li2">Independent volunteer administration, professionally active at the intersection of web development and API integration</li>
+                                <li data-i18n="about_li3">Analytical thinking, technical curiosity and quality-oriented approach</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="skills" class="section skills">
-            <div class="container skills-grid">
-                <div class="skills-card">
-                    <h3 class="skill-title" data-i18n="skills_title">Skill Set</h3>
-                    <p class="muted" data-i18n="skills_desc">A short introduction of my current skills. Since I'm ready to learn new things, there may well be more to come on this topic.</p>
-                    <a class="btn btn-outline small" href="#contact" data-i18n="skills_btn">Let's Talk</a>
-                </div>
-                <div class="skills-icons">
-                    <div class="icon-item"><img src="assets/icons/html-64.svg" alt="HTML">
-                        <div class="label">HTML</div>
+            <div class="container">
+                <p class="section-kicker" data-i18n="skills_kicker">Technologies</p>
+                <div class="skills-grid">
+                    <div class="skills-card">
+                        <h3 class="skill-title" data-i18n="skills_title">Skill Set</h3>
+                        <p class="muted" data-i18n="skills_desc">A short introduction of my current skills. Since I'm ready to learn new things, there may well be more to come on this topic.</p>
+                        <a class="btn btn-outline small" href="#contact" data-i18n="skills_btn">Let's Talk</a>
                     </div>
-                    <div class="icon-item"><img src="assets/icons/css-64.svg" alt="CSS">
-                        <div class="label">CSS</div>
-                    </div>
-                    <div class="icon-item"><img src="assets/icons/javascript-64.svg" alt="JavaScript">
-                        <div class="label">JavaScript</div>
-                    </div>
-                    <div class="icon-item"><img src="assets/icons/material-64.svg" alt="Material Design">
-                        <div class="label">Material Design</div>
-                    </div>
-                    <div class="icon-item"><img src="assets/icons/typescript-64.svg" alt="TypeScript">
-                        <div class="label">TypeScript</div>
-                    </div>
-                    <div class="icon-item"><img src="assets/icons/angular-64.svg" alt="Angular">
-                        <div class="label">Angular</div>
-                    </div>
-                    <div class="icon-item"><img src="assets/icons/firebase-64.svg" alt="Firebase">
-                        <div class="label">Firebase</div>
-                    </div>
-                    <div class="icon-item"><img src="assets/icons/git-64.svg" alt="Git">
-                        <div class="label">Git</div>
-                    </div>
-                    <div class="icon-item"><img src="assets/icons/restapi-64.svg" alt="Rest API">
-                        <div class="label">Rest API</div>
-                    </div>
-                    <div class="icon-item"><img src="assets/icons/scrum-64.svg" alt="Scrum">
-                        <div class="label">Scrum</div>
-                    </div>
-                    <div class="icon-item"><img src="assets/icons/growth-64.svg" alt="Growth Mindset">
-                        <div class="label">Growth Mindset</div>
+                    <div class="skills-icons">
+                        <div class="icon-item">
+                            <img src="assets/icons/html-64.svg" alt="HTML">
+                            <div class="label">HTML</div>
+                        </div>
+                        <div class="icon-item">
+                            <img src="assets/icons/css-64.svg" alt="CSS">
+                            <div class="label">CSS</div>
+                        </div>
+                        <div class="icon-item">
+                            <img src="assets/icons/javascript-64.svg" alt="JavaScript">
+                            <div class="label">JavaScript</div>
+                        </div>
+                        <div class="icon-item">
+                            <img src="assets/icons/material-64.svg" alt="Material Design">
+                            <div class="label">Material Design</div>
+                        </div>
+                        <div class="icon-item">
+                            <img src="assets/icons/typescript-64.svg" alt="TypeScript">
+                            <div class="label">TypeScript</div>
+                        </div>
+                        <div class="icon-item">
+                            <img src="assets/icons/angular-64.svg" alt="Angular">
+                            <div class="label">Angular</div>
+                        </div>
+                        <div class="icon-item">
+                            <img src="assets/icons/firebase-64.svg" alt="Firebase">
+                            <div class="label">Firebase</div>
+                        </div>
+                        <div class="icon-item">
+                            <img src="assets/icons/git-64.svg" alt="Git">
+                            <div class="label">Git</div>
+                        </div>
+                        <div class="icon-item">
+                            <img src="assets/icons/restapi-64.svg" alt="Rest API">
+                            <div class="label">Rest API</div>
+                        </div>
+                        <div class="icon-item">
+                            <img src="assets/icons/scrum-64.svg" alt="Scrum">
+                            <div class="label">Scrum</div>
+                        </div>
+                        <div class="icon-item">
+                            <img src="assets/icons/growth-64.svg" alt="Growth Mindset">
+                            <div class="label">Growth Mindset</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -152,25 +171,26 @@
 
         <section id="projects" class="section projects">
             <div class="container">
+                <p class="section-kicker" data-i18n="projects_kicker">Portfolio</p>
                 <h2 class="section-title" data-i18n="projects_title">Featured Projects</h2>
                 <p class="muted" data-i18n="projects_desc">Explore a selection of my work — interact with projects to see details.</p>
 
-                <div class="projects-list">
-                    <div class="project-item" tabindex="0" data-preview="assets/images/project1.jpg" data-index="0" data-title="Join" data-tech="Angular | TypeScript | HTML | CSS | Firebase">
+                <div class="projects-list" aria-label="Featured projects">
+                    <div class="project-item" tabindex="0" data-preview="assets/images/project1.jpg" data-index="0" data-title="Join" data-tech="HTML | CSS | JavaScript">
                         <div class="project-row">
                             <div class="project-title">Join</div>
-                            <div class="project-meta">Angular | TypeScript | HTML | CSS | Firebase</div>
+                            <div class="project-meta">HTML | CSS | JavaScript</div>
                         </div>
                     </div>
 
-                    <div class="project-item" tabindex="0" data-preview="assets/images/project2.jpg" data-index="1" data-title="El Pollo Loco" data-tech="HTML | CSS | JavaScript">
+                    <div class="project-item" tabindex="0" data-preview="assets/images/project2.jpg" data-index="1" data-title="Sharkie" data-tech="HTML | CSS | JavaScript">
                         <div class="project-row">
                             <div class="project-title">Sharkie</div>
                             <div class="project-meta">HTML | CSS | JavaScript</div>
                         </div>
                     </div>
 
-                    <div class="project-item" tabindex="0" data-preview="assets/images/project3.jpg" data-index="2" data-title="DA Bubble" data-tech="Angular | Firebase | TypeScript">
+                    <div class="project-item" tabindex="0" data-preview="assets/images/project3.jpg" data-index="2" data-title="Pokédex" data-tech="Angular | Firebase | TypeScript">
                         <div class="project-row">
                             <div class="project-title">Pokédex</div>
                             <div class="project-meta">HTML | CSS | JavaScript</div>
@@ -185,9 +205,7 @@
                 <h3 class="section-title" data-i18n="testimonials_title">What my colleagues say about me</h3>
 
                 <div class="testimonials-wrap">
-                    <button class="slider-arrow prev" aria-label="Previous testimonial">‹</button>
-
-                    <div class="testimonials">
+                    <div class="testimonials" aria-label="Colleague testimonials">
                         <blockquote class="testimonial active">
                             <p class="quote" data-i18n="test1_quote">Andreas has proven to be a reliable project partner. His technical skills and proactive approach were crucial to the success of our project.</p>
                             <cite data-i18n="test1_cite">Nick J. — Project Partner</cite>
@@ -204,7 +222,15 @@
                         </blockquote>
                     </div>
 
-                    <button class="slider-arrow next" aria-label="Next testimonial">›</button>
+                    <div class="slider-controls" aria-label="Testimonial navigation">
+                        <button class="slider-arrow prev" type="button" aria-label="Previous testimonial">←</button>
+                        <div class="slider-pagination" aria-hidden="true">
+                            <span class="active"></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <button class="slider-arrow next" type="button" aria-label="Next testimonial">→</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -212,6 +238,7 @@
         <section id="contact" class="section contact">
             <div class="container contact-grid">
                 <div class="contact-left">
+                    <p class="section-kicker" data-i18n="contact_kicker">Contact me</p>
                     <h2 class="section-title big" data-i18n="contact_title">Let's work together</h2>
                     <p class="muted" data-i18n="contact_desc">Got a problem to solve? Encourage people to contact and describe the role you are interested in.</p>
                 </div>
@@ -255,7 +282,7 @@
                 <div class="muted" data-i18n="footer_role">Web Developer — North Rhine-Westphalia Germany</div>
             </div>
             <div class="footer-center">Andreas Portfolio 2026</div>
-            <div class="footer-right d-flex align-items-center gap-4">
+            <div class="footer-right">
                 <a href="https://github.com/andreas813" target="_blank" rel="noopener noreferrer">GitHub</a>
                 <a href="https://www.linkedin.com/in/andreas-w-dev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 <span class="muted">|</span>
