@@ -40,7 +40,7 @@
     --space-8: 4rem;
     --space-9: 5rem;
     --layout-content-max: 90rem;
-    --layout-gutter: clamp(1.25rem, 4vw, 4rem);
+    --layout-gutter: clamp(1.25rem, 6.5vw, 6rem);
     --radius-card: 1rem;
     --radius-pill: 100vw;
     --transition-ui: 250ms ease;
@@ -104,4 +104,283 @@ a {
 .section {
     width: 100%;
     scroll-margin-top: var(--space-8);
+}
+/* @header Preserve the existing logo and navigation treatment. */
+header {
+    position: absolute;
+    z-index: var(--z-header);
+    width: 100%;
+    height: 98px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 25%, transparent 100%);
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+}
+.logo img {
+    width: auto;
+    height: 48px;
+}
+.nav-links a,
+.link {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-ui);
+}
+.nav-links a:hover,
+.link:hover,
+.site-footer a:hover {
+    color: var(--color-accent);
+}
+
+/* @hero Define the full-viewport hero and reusable pill button. */
+.hero {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    background: var(--gradient-hero);
+}
+.hero-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+.hero-role {
+    font-family: var(--font-mono);
+    font-size: clamp(1.5rem, 2.6vw, 2.5rem);
+}
+.hero-title {
+    font-size: var(--font-size-hero);
+    font-weight: 700;
+    line-height: 1.1;
+}
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3) var(--space-5);
+    border: 1px solid var(--color-text);
+    border-radius: var(--radius-pill);
+    color: inherit;
+    background: transparent;
+    text-decoration: none;
+    transition: border-color var(--transition-ui), color var(--transition-ui), background-color var(--transition-ui);
+}
+.button:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+/* @ribbon Keep the animated banner independent from the content container. */
+.ribbon-wrapper {
+    position: absolute;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.ribbon {
+    position: absolute;
+    bottom: 64px;
+    left: -16px;
+    z-index: 4;
+    display: flex;
+    width: 140vw;
+    max-width: none;
+    height: 62px;
+    overflow: hidden;
+    color: var(--color-accent);
+    background: rgba(255, 255, 255, 0.12);
+    -webkit-backdrop-filter: blur(5.3px);
+    backdrop-filter: blur(5.3px);
+    font-size: clamp(1.25rem, 2vw, 2rem);
+    line-height: 1.2;
+    transform: rotate(-3deg);
+    transform-origin: center;
+}
+.ribbon-track {
+    white-space: nowrap;
+    will-change: transform;
+    animation: ribbon-scroll var(--ribbon-duration, 16s) linear infinite;
+    transform: translate3d(0, 0, 0);
+}
+@keyframes ribbon-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* @hero-details Style the vertical links and scroll indicators. */
+.hero-email {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+}
+.hero-bar,
+.scroll-bar {
+    width: 1px;
+}
+.hero-bar {
+    height: 186px;
+    background: var(--color-text);
+}
+.scroll-bar {
+    height: 240px;
+    background: var(--color-accent);
+}
+.scroll-button {
+    padding: var(--space-2);
+    border: 1px solid var(--color-accent);
+    border-radius: 32px;
+}
+.arrow-img {
+    transform-origin: center;
+    animation: bounce 500ms linear infinite alternate;
+}
+.hero-links {
+    z-index: 256;
+}
+@keyframes bounce {
+    from { transform: translateY(8px); }
+    to { transform: translateY(-2px); }
+}
+
+/* @language-switch Style the compact EN/DE control. */
+.lang-switch {
+    position: relative;
+    width: 84px;
+    height: 28px;
+    padding: 2px;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    line-height: 1.2;
+    text-align: center;
+}
+.lang-switch:hover {
+    border-color: var(--color-text);
+}
+.lang-option {
+    position: relative;
+    z-index: 2;
+    border: 0;
+    border-radius: var(--radius-pill);
+    color: var(--color-text);
+    background: transparent;
+    cursor: pointer;
+    transition: color var(--transition-ui);
+}
+.lang-option:not(.active) {
+    color: rgba(61, 207, 182, 0.5);
+    font-weight: 700;
+}
+.lang-option:not(.active):hover {
+    color: var(--color-accent);
+}
+.lang-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 50%;
+    height: 100%;
+    border-radius: var(--radius-pill);
+    background: var(--color-accent);
+    transition: transform var(--transition-ui);
+}
+.lang-switch[data-active="de"] .lang-indicator {
+    transform: translateX(100%);
+}
+
+/* @modal Keep the backdrop behind the readable modal panel. */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-modal);
+    display: none;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    isolation: isolate;
+}
+.modal.open {
+    display: flex;
+}
+body.modal-open {
+    overflow: hidden;
+}
+.modal-backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: rgba(0, 0, 0, 0.6);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+}
+.modal-panel {
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    max-width: 600px;
+    max-height: 85vh;
+    padding: var(--space-6);
+    overflow-y: auto;
+    border: 1px solid var(--color-accent);
+    border-radius: 12px;
+    color: var(--color-text);
+    background: var(--color-background);
+}
+
+/* @footer Keep the footer full-width with a bounded inner container. */
+.site-footer {
+    padding-block: var(--space-7);
+    border-top: 1px solid var(--color-border-subtle);
+    color: var(--color-text);
+    background: transparent;
+    font-size: 1rem;
+}
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-5);
+}
+.footer-left,
+.footer-center,
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+}
+.site-footer a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-ui);
+}
+
+/* @widescreen Extend the background, not the centered content column. */
+@media (min-width: 1440px) {
+    body {
+        background: var(--gradient-widescreen);
+        background-attachment: fixed;
+    }
+    .container {
+        max-width: var(--layout-content-max);
+    }
+    .ribbon-wrapper {
+        width: 100%;
+    }
+}
+
+/* @motion Respect users who prefer reduced animation. */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    .ribbon-track,
+    .arrow-img {
+        animation: none;
+    }
 }

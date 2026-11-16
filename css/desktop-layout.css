@@ -1,0 +1,327 @@
+/* @desktop-layout Add the Figma-aligned desktop composition for all main sections. */
+:root {
+    --section-space: clamp(6rem, 10vw, 9.5rem);
+    --card-gradient: linear-gradient(125deg, rgba(61, 207, 182, 0.12), rgba(8, 70, 59, 0.2));
+    --card-shadow: 0 1.25rem 3rem rgba(0, 0, 0, 0.12);
+}
+
+/* @desktop-header Align the navigation and existing personal logo. */
+header {
+    height: 6rem;
+}
+header .container {
+    height: 100%;
+}
+.nav-lang-links {
+    align-items: center;
+}
+.nav-links {
+    align-items: center;
+    gap: clamp(1.25rem, 2vw, 2.25rem) !important;
+    font-size: 1rem;
+}
+.logo img {
+    display: block;
+    width: auto;
+    max-width: 11rem;
+    height: auto;
+    max-height: 3.25rem;
+}
+
+/* @desktop-hero Center the title and anchor both side details to the viewport. */
+.hero {
+    min-height: 42rem;
+    overflow: hidden;
+}
+.hero-inner {
+    height: 100%;
+    align-items: center;
+}
+.hero-content {
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    z-index: 3;
+    width: min(82%, 58rem);
+    align-items: center;
+    transform: translate(-50%, -50%);
+}
+.hero-role {
+    color: var(--color-text-muted);
+    letter-spacing: 0.025em;
+}
+.hero-title {
+    white-space: nowrap;
+    letter-spacing: -0.045em;
+}
+.hero-buttons {
+    gap: clamp(1.25rem, 3vw, 3rem) !important;
+}
+.hero-buttons .button {
+    min-width: 9rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+}
+.hero-scroll,
+.hero-links {
+    position: absolute;
+    bottom: 0;
+    height: 62%;
+}
+.hero-scroll {
+    left: 0;
+    justify-content: flex-end;
+}
+.hero-scroll .scroll-bar {
+    flex: 1 1 auto;
+    min-height: 10rem;
+}
+.hero-links {
+    right: 0;
+    justify-content: flex-end;
+    gap: 1.25rem !important;
+}
+.hero-links .hero-email {
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+}
+.hero-social a {
+    display: inline-flex;
+    transition: transform var(--transition-ui);
+}
+.hero-social a:hover {
+    transform: translateY(-0.2rem);
+}
+.hero-social img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.hero-links .hero-bar {
+    flex: 1 1 auto;
+    min-height: 7rem;
+}
+.ribbon {
+    bottom: 4.25rem;
+    left: -10vw;
+    width: 120vw;
+    height: 4.25rem;
+}
+
+/* @section-label Standardize the small turquoise labels above section content. */
+.section-kicker,
+.who {
+    margin: 0 0 0.75rem;
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.015em;
+}
+.section-title {
+    margin: 0;
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    font-weight: 700;
+    line-height: 1.08;
+}
+.muted {
+    color: var(--color-text-muted);
+}
+
+/* @about Use a balanced image-and-copy layout with the illustration retained. */
+.about {
+    padding-block: var(--section-space);
+    background: var(--color-background);
+}
+.about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(3rem, 6vw, 7rem);
+}
+.about-photo {
+    width: 100%;
+    max-width: 35rem;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    box-shadow: var(--card-shadow);
+}
+.about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.about-copy {
+    width: 100%;
+    max-width: 38rem;
+}
+.about-card {
+    width: 100%;
+    max-width: none;
+    padding: clamp(2rem, 3.5vw, 3.25rem);
+    border: 1px solid var(--color-border);
+    border-radius: 1.5rem;
+    background: var(--card-gradient);
+}
+.about-card .section-title {
+    margin-bottom: 1.5rem;
+}
+.about-body {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    line-height: 1.55;
+}
+.about-body p {
+    margin: 0 0 1.5rem;
+}
+.about-body ul {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.about-body li {
+    position: relative;
+    padding-left: 1.5rem;
+}
+.about-body li::before {
+    position: absolute;
+    top: 0.55em;
+    left: 0;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+    content: "";
+}
+
+/* @skills Pair the description card with the original eleven-skill icon set. */
+.skills {
+    padding-block: var(--section-space);
+    background: linear-gradient(115deg, rgba(8, 70, 59, 0.24), transparent 62%);
+}
+.skills > .container > .section-kicker {
+    margin-bottom: 1rem;
+}
+.skills-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: clamp(3rem, 6vw, 7rem);
+}
+.skills-card {
+    padding: clamp(2rem, 3.8vw, 3.5rem);
+    border: 1px solid var(--color-border);
+    border-radius: 1.5rem;
+    background: var(--card-gradient);
+    box-shadow: var(--card-shadow);
+}
+.skill-title {
+    margin: 0 0 1.5rem;
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: clamp(2.5rem, 4vw, 3.75rem);
+    font-weight: 700;
+    line-height: 1.1;
+}
+.skills-card p {
+    margin: 0 0 2rem;
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    line-height: 1.55;
+}
+.skills-card .btn {
+    padding: 0.7rem 1.35rem;
+    border: 1px solid var(--color-text);
+    border-radius: var(--radius-pill);
+    color: var(--color-text);
+    background: transparent;
+    transition: border-color var(--transition-ui), color var(--transition-ui);
+}
+.skills-card .btn:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+.skills-icons {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: center;
+    gap: clamp(1.75rem, 3vw, 3rem) clamp(1rem, 2vw, 2rem);
+}
+.icon-item {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
+    color: var(--color-text);
+    text-align: center;
+}
+.icon-item img {
+    width: clamp(2.75rem, 4vw, 4rem);
+    height: clamp(2.75rem, 4vw, 4rem);
+    object-fit: contain;
+}
+.icon-item .label {
+    max-width: 7rem;
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    line-height: 1.35;
+}
+
+/* @projects Render the project list as clean, full-width interactive rows. */
+.projects {
+    padding-block: var(--section-space);
+    background: var(--color-background);
+}
+.projects .section-kicker {
+    margin-bottom: 0.8rem;
+}
+.projects .section-title {
+    margin-bottom: 1.5rem;
+}
+.projects > .container > .muted {
+    max-width: 34rem;
+    margin: 0 0 2.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+.projects-list {
+    width: 100%;
+    max-width: 56rem;
+    border-top: 1px solid var(--color-border-subtle);
+}
+.project-item {
+    border-bottom: 1px solid var(--color-border-subtle);
+    cursor: pointer;
+    transition: background-color var(--transition-ui), padding-inline var(--transition-ui);
+}
+.project-item:hover,
+.project-item:focus-visible {
+    background: rgba(61, 207, 182, 0.055);
+}
+.project-row {
+    display: flex;
+    min-height: 6rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+}
+.project-title {
+    color: var(--color-text);
+    font-family: var(--font-mono);
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+.project-meta {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    text-align: right;
+}
+

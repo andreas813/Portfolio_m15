@@ -1,0 +1,312 @@
+/* @testimonials Emphasize one centered quote and show adjacent cards as context. */
+.section.testimonials {
+    padding-block: var(--section-space);
+    overflow: hidden;
+    background: var(--color-background);
+}
+.section.testimonials > .container {
+    width: 100%;
+    max-width: none;
+    padding-inline: 0;
+}
+.section.testimonials .section-title {
+    max-width: 42rem;
+    margin: 0 auto 3.5rem;
+    padding-inline: var(--layout-gutter);
+    font-size: clamp(1.35rem, 2vw, 1.75rem);
+    line-height: 1.35;
+    text-align: center;
+}
+.testimonials-wrap {
+    width: 100%;
+    overflow: hidden;
+}
+.testimonials-wrap > .testimonials {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1rem, 2vw, 2rem);
+    margin: 0;
+    padding: 0 0.5rem;
+}
+.testimonial {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    min-height: 17rem;
+    flex: 0 0 23%;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    padding: clamp(1.5rem, 2vw, 2.25rem);
+    border: 1px solid var(--color-border);
+    border-radius: 1.75rem;
+    color: var(--color-text-muted);
+    background: rgba(61, 207, 182, 0.06);
+    opacity: 0.58;
+}
+.testimonial:nth-child(2) {
+    order: 1;
+}
+.testimonial.active {
+    min-height: 19rem;
+    flex-basis: 42%;
+    order: 2;
+    color: var(--color-text);
+    background: rgba(61, 207, 182, 0.25);
+    opacity: 1;
+    box-shadow: var(--card-shadow);
+}
+.testimonial:nth-child(3) {
+    order: 3;
+}
+.testimonial.active::before {
+    position: absolute;
+    top: -2.7rem;
+    left: -1.35rem;
+    color: var(--color-text);
+    font-family: Georgia, serif;
+    font-size: 6rem;
+    line-height: 1;
+    content: "“";
+}
+.testimonial .quote {
+    margin: 0 0 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+.testimonial cite {
+    align-self: flex-end;
+    width: 85%;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: 0.82rem;
+    font-style: normal;
+    text-align: right;
+}
+.slider-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+.slider-arrow {
+    display: inline-flex;
+    width: 2.25rem;
+    height: 2.25rem;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    color: var(--color-text);
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.35rem;
+    transition: color var(--transition-ui);
+}
+.slider-arrow:hover {
+    color: var(--color-accent);
+}
+.slider-pagination {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+.slider-pagination span {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--color-text-muted);
+}
+.slider-pagination span.active {
+    background: var(--color-accent);
+}
+
+/* @contact Use a two-column introduction and understated line-based form fields. */
+.contact {
+    padding-block: var(--section-space);
+    background: linear-gradient(110deg, rgba(8, 70, 59, 0.15), transparent 58%);
+}
+.contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    align-items: start;
+    gap: clamp(2rem, 4vw, 4rem);
+}
+.contact-left,
+.contact-form {
+    min-width: 0;
+}
+.contact-left .section-title {
+    max-width: 100%;
+    margin: 0 0 2rem;
+    font-size: clamp(2.75rem, 3.8vw, 4rem);
+    line-height: 1.04;
+    text-wrap: balance;
+}
+.contact-left .muted {
+    max-width: 32rem;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.55;
+}
+.contact-form {
+    display: grid;
+    gap: 1.25rem;
+    width: 100%;
+}
+.form-row {
+    display: grid;
+    gap: 0.65rem;
+    margin: 0;
+    padding: 1.15rem 1rem;
+    border-top: 1px solid var(--color-border);
+    transition: border-color var(--transition-ui);
+}
+.form-row:focus-within {
+    border-color: var(--color-accent);
+}
+.form-label {
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+}
+.form-row input,
+.form-row textarea {
+    width: 100%;
+    padding: 0.15rem 0;
+    border: 0;
+    outline: 0;
+    color: var(--color-text);
+    background: transparent;
+    font-size: 0.95rem;
+    resize: vertical;
+}
+.form-row input::placeholder,
+.form-row textarea::placeholder {
+    color: var(--color-text-muted);
+    opacity: 1;
+}
+.form-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    line-height: 1.45;
+}
+.form-checkbox input {
+    flex: 0 0 auto;
+    margin-top: 0.15rem;
+    accent-color: var(--color-accent);
+}
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+.form-actions .button {
+    min-width: 9rem;
+    padding: 0.7rem 1.35rem;
+    font-size: 0.9rem;
+}
+.form-actions .button:disabled {
+    cursor: not-allowed;
+    opacity: 0.45;
+}
+
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .contact-grid {
+        gap: 2rem;
+    }
+    .contact-left .section-title {
+        font-size: clamp(2.5rem, 3.5vw, 3.25rem);
+    }
+}
+
+/* @footer Arrange the existing logo, copyright, and links in three columns. */
+.site-footer {
+    padding-block: 3.5rem;
+    background: var(--color-background);
+}
+.footer-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 2.5rem;
+}
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.footer-left .muted {
+    max-width: 15rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+.footer-center {
+    justify-content: center;
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+.footer-right {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.45rem !important;
+    font-size: 0.9rem;
+}
+.footer-right .muted {
+    display: none;
+}
+
+/* @desktop-wide Keep all content inside the same centered 1440px layout. */
+@media (min-width: 1440px) {
+    .hero {
+        background: var(--gradient-widescreen);
+    }
+    .about,
+    .projects,
+    .section.testimonials,
+    .site-footer {
+        background-color: var(--color-background);
+    }
+}
+
+/* @tablet-stack Keep the desktop grid from collapsing into narrow columns before mobile refinements. */
+@media (max-width: 991px) {
+    .about-grid,
+    .skills-grid,
+    .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .about-photo,
+    .about-copy {
+        max-width: 38rem;
+        margin-inline: auto;
+    }
+    .skills-icons {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .project-row {
+        flex-wrap: wrap;
+        gap: 0.5rem 1.5rem;
+    }
+    .project-meta {
+        text-align: left;
+    }
+    .footer-inner {
+        grid-template-columns: minmax(0, 1fr);
+        justify-items: start;
+    }
+    .footer-right {
+        align-items: flex-start;
+    }
+}
