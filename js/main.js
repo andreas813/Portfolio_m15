@@ -120,6 +120,7 @@ document.addEventListener("DOMContentLoaded", initializePortfolio);
 /** @function initializePortfolio Start all page-level behavior after the DOM is ready. */
 function initializePortfolio() {
     initializeRibbon();
+    initializeMobileNavigation();
     initializeLanguageSwitcher();
     initializeContactForm();
     initializeLegalModals();
@@ -261,4 +262,30 @@ function closeModal() {
 function handleModalKeydown(event) {
     const modal = document.getElementById("project-modal");
     if (event.key === "Escape" && modal?.classList.contains("open")) closeModal();
+}
+
+
+/** @function initializeMobileNavigation Bind the responsive menu toggle and dismissal behavior. */
+function initializeMobileNavigation() {
+    const toggle = document.querySelector(".mobile-menu-toggle");
+    const navigation = document.getElementById("primary-navigation");
+    if (!toggle || !navigation) return;
+    toggle.addEventListener("click", () => toggleMobileNavigation(toggle, navigation));
+    navigation.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => closeMobileNavigation(toggle, navigation)));
+    document.addEventListener("keydown", (event) => event.key === "Escape" && closeMobileNavigation(toggle, navigation));
+}
+
+/** @function toggleMobileNavigation Toggle menu visibility and its accessible expanded state. */
+function toggleMobileNavigation(toggle, navigation) {
+    const isOpen = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!isOpen));
+    toggle.setAttribute("aria-label", isOpen ? "Open navigation" : "Close navigation");
+    navigation.classList.toggle("is-open", !isOpen);
+}
+
+/** @function closeMobileNavigation Close the menu and restore the collapsed control state. */
+function closeMobileNavigation(toggle, navigation) {
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open navigation");
+    navigation.classList.remove("is-open");
 }
