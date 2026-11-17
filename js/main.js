@@ -240,7 +240,9 @@ function openLegalText(event) {
 /** @function openModal Populate and reveal the modal above the blurred backdrop. */
 function openModal(title, content) {
     const modal = document.getElementById("project-modal");
-    if (!modal) return;
+    const panel = modal?.querySelector(".modal-panel");
+    if (!modal || !panel) return;
+    panel.classList.remove("is-project");
     document.getElementById("project-modal-title").textContent = title;
     document.getElementById("project-modal-body").innerHTML = content;
     modal.classList.add("open");
@@ -255,13 +257,25 @@ function closeModal() {
     if (!modal) return;
     modal.classList.remove("open");
     modal.setAttribute("aria-hidden", "true");
+    modal.querySelector(".modal-panel")?.classList.remove("is-project");
     document.body.classList.remove("modal-open");
+    document.dispatchEvent(new Event("portfolio:modalclosed"));
 }
 
 /** @function handleModalKeydown Close the active modal when Escape is pressed. */
 function handleModalKeydown(event) {
     const modal = document.getElementById("project-modal");
-    if (event.key === "Escape" && modal?.classList.contains("open")) closeModal();
+    if (!modal?.classList.contains("open")) return;
+    if (event.key === "Escape") closeModal();
+    if (event.key === "Tab") keepModalFocus(event, modal);
+}
+
+/** @function keepModalFocus Keep keyboard focus inside the active dialog. */
+function keepModalFocus(event, modal) {
+    const items = [...modal.querySelectorAll("button:not(:disabled), a[href], [tabindex='0']")];
+    const first = items[0], last = items[items.length - 1];
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+    if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
 }
 
 
