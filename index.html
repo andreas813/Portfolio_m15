@@ -177,21 +177,21 @@
                 <p class="muted" data-i18n="projects_desc">Explore a selection of my work — interact with projects to see details.</p>
 
                 <div class="projects-list" aria-label="Featured projects">
-                    <div class="project-item" tabindex="0" data-preview="assets/images/project1.jpg" data-index="0" data-title="Join" data-tech="HTML | CSS | JavaScript">
+                    <div class="project-item" role="button" aria-haspopup="dialog" tabindex="0" data-preview="assets/images/project1.jpg" data-index="0" data-title="Join" data-tech="HTML | CSS | JavaScript">
                         <div class="project-row">
                             <div class="project-title">Join</div>
                             <div class="project-meta">HTML | CSS | JavaScript</div>
                         </div>
                     </div>
 
-                    <div class="project-item" tabindex="0" data-preview="assets/images/project2.jpg" data-index="1" data-title="Sharkie" data-tech="HTML | CSS | JavaScript">
+                    <div class="project-item" role="button" aria-haspopup="dialog" tabindex="0" data-preview="assets/images/project2.jpg" data-index="1" data-title="Sharkie" data-tech="HTML | CSS | JavaScript">
                         <div class="project-row">
                             <div class="project-title">Sharkie</div>
                             <div class="project-meta">HTML | CSS | JavaScript</div>
                         </div>
                     </div>
 
-                    <div class="project-item" tabindex="0" data-preview="assets/images/project3.jpg" data-index="2" data-title="Pokédex" data-tech="Angular | Firebase | TypeScript">
+                    <div class="project-item" role="button" aria-haspopup="dialog" tabindex="0" data-preview="assets/images/project3.jpg" data-index="2" data-title="Pokédex" data-tech="Angular | Firebase | TypeScript">
                         <div class="project-row">
                             <div class="project-title">Pokédex</div>
                             <div class="project-meta">HTML | CSS | JavaScript</div>
@@ -225,10 +225,10 @@
 
                     <div class="slider-controls" aria-label="Testimonial navigation">
                         <button class="slider-arrow prev" type="button" aria-label="Previous testimonial">←</button>
-                        <div class="slider-pagination" aria-hidden="true">
-                            <span class="active"></span>
-                            <span></span>
-                            <span></span>
+                        <div class="slider-pagination" aria-label="Choose testimonial">
+                            <button type="button" class="active" data-testimonial-index="0" aria-label="Show testimonial 1" aria-current="true"></button>
+                            <button type="button" data-testimonial-index="1" aria-label="Show testimonial 2"></button>
+                            <button type="button" data-testimonial-index="2" aria-label="Show testimonial 3"></button>
                         </div>
                         <button class="slider-arrow next" type="button" aria-label="Next testimonial">→</button>
                     </div>
@@ -293,21 +293,22 @@
         </div>
     </footer>
 
-    <!-- Modals etc. -->
-    <div id="project-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="project-modal-title">
+    <!-- Project and legal dialogs share the existing accessible overlay. -->
+    <div id="project-modal" class="modal" aria-hidden="true" aria-modal="true" role="dialog" aria-labelledby="project-modal-title">
         <div class="modal-backdrop" id="modal-backdrop"></div>
-        <div class="modal-panel" role="document">
-            <button class="modal-close" id="modal-close" aria-label="Close">×</button>
-            <h3 id="project-modal-title"></h3>
+        <section class="modal-panel" role="document" tabindex="-1">
+            <button class="modal-close" id="modal-close" type="button" aria-label="Close">×</button>
+            <h2 id="project-modal-title"></h2>
             <div id="project-modal-body" class="modal-body"></div>
             <div id="project-modal-footer" class="modal-footer">
-                <button class="btn btn-outline" id="modal-close-2">Close</button>
+                <button class="btn btn-outline" id="modal-close-2" type="button">Close</button>
             </div>
-        </div>
+        </section>
     </div>
 
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/interactions.js"></script>
 </body>
 
 </html>
