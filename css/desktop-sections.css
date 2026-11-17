@@ -45,6 +45,7 @@
     color: var(--color-text-muted);
     background: rgba(61, 207, 182, 0.06);
     opacity: 0.58;
+    transition: flex-basis 320ms ease, min-height 320ms ease, opacity 320ms ease, background-color 320ms ease, box-shadow 320ms ease;
 }
 .testimonial.is-prev { order: 1; }
 .testimonial.active {
@@ -374,4 +375,8 @@
     .project-tech { font-size: 0.85rem; }
     .project-next { justify-self: end; }
     .modal-close { top: 0.65rem; right: 0.65rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .testimonial { transition: none; }
 }

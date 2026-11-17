@@ -132,6 +132,7 @@ function showTestimonial(direction) {
 }
 
 let activeTestimonialIndex = 0;
+let testimonialsInitialized = false;
 
 /** @function updateTestimonialDisplay Set active, previous, and next cards plus accessible states. */
 function updateTestimonialDisplay(index) {
@@ -144,11 +145,24 @@ function updateTestimonialDisplay(index) {
 
 /** @function updateTestimonialCards Assign the active card and its adjacent desktop positions. */
 function updateTestimonialCards(cards) {
+    const positions = cards.map((card) => card.getBoundingClientRect());
     cards.forEach((card, index) => {
         card.classList.toggle("active", index === activeTestimonialIndex);
         card.classList.toggle("is-prev", index === (activeTestimonialIndex - 1 + cards.length) % cards.length);
         card.classList.toggle("is-next", index === (activeTestimonialIndex + 1) % cards.length);
         card.setAttribute("aria-hidden", String(index !== activeTestimonialIndex));
+    });
+    if (testimonialsInitialized) animateTestimonialReorder(cards, positions);
+    testimonialsInitialized = true;
+}
+
+/** @function animateTestimonialReorder Smooth the desktop card movement after active-state changes. */
+function animateTestimonialReorder(cards, previousPositions) {
+    if (window.matchMedia("(max-width: 767px), (prefers-reduced-motion: reduce)").matches) return;
+    cards.forEach((card, index) => {
+        const offset = previousPositions[index].left - card.getBoundingClientRect().left;
+        if (Math.abs(offset) < 1 || typeof card.animate !== "function") return;
+        card.animate([{ transform: `translateX(${offset}px)` }, { transform: "translateX(0)" }], { duration: 320, easing: "cubic-bezier(.2,.7,.2,1)" });
     });
 }
 
