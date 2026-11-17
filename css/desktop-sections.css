@@ -4,13 +4,11 @@
     overflow: hidden;
     background: var(--color-background);
 }
-
-.section.testimonials>.container {
+.section.testimonials > .container {
     width: 100%;
     max-width: none;
     padding-inline: 0;
 }
-
 .section.testimonials .section-title {
     max-width: 42rem;
     margin: 0 auto 3.5rem;
@@ -19,13 +17,11 @@
     line-height: 1.35;
     text-align: center;
 }
-
 .testimonials-wrap {
     width: 100%;
     overflow: hidden;
 }
-
-.testimonials-wrap>.testimonials {
+.testimonials-wrap > .testimonials {
     display: flex;
     width: 100%;
     align-items: center;
@@ -34,7 +30,6 @@
     margin: 0;
     padding: 0 0.5rem;
 }
-
 .testimonial {
     position: relative;
     display: flex;
@@ -51,11 +46,7 @@
     background: rgba(61, 207, 182, 0.06);
     opacity: 0.58;
 }
-
-.testimonial:nth-child(2) {
-    order: 1;
-}
-
+.testimonial.is-prev { order: 1; }
 .testimonial.active {
     min-height: 19rem;
     flex-basis: 42%;
@@ -65,11 +56,7 @@
     opacity: 1;
     box-shadow: var(--card-shadow);
 }
-
-.testimonial:nth-child(3) {
-    order: 3;
-}
-
+.testimonial.is-next { order: 3; }
 .testimonial.active::before {
     position: absolute;
     top: -2.7rem;
@@ -80,13 +67,11 @@
     line-height: 1;
     content: "“";
 }
-
 .testimonial .quote {
     margin: 0 0 1.5rem;
     font-size: 0.95rem;
     line-height: 1.5;
 }
-
 .testimonial cite {
     align-self: flex-end;
     width: 85%;
@@ -97,7 +82,6 @@
     font-style: normal;
     text-align: right;
 }
-
 .slider-controls {
     display: flex;
     align-items: center;
@@ -105,7 +89,6 @@
     gap: 1.25rem;
     margin-top: 2rem;
 }
-
 .slider-arrow {
     display: inline-flex;
     width: 2.25rem;
@@ -119,46 +102,33 @@
     font-size: 1.35rem;
     transition: color var(--transition-ui);
 }
-
 .slider-arrow:hover {
     color: var(--color-accent);
 }
-
 .slider-pagination {
     display: flex;
     align-items: center;
     gap: 0.65rem;
 }
-
-.slider-pagination span {
-    width: 0.45rem;
-    height: 0.45rem;
-    border-radius: 50%;
-    background: var(--color-text-muted);
-}
-
-.slider-pagination span.active {
-    background: var(--color-accent);
-}
+.slider-pagination button { width: 0.55rem; height: 0.55rem; padding: 0; border: 0; border-radius: 50%; background: var(--color-text-muted); cursor: pointer; }
+.slider-pagination button.active { background: var(--color-accent); }
+.slider-pagination button:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
 
 /* @contact Use a two-column introduction and understated line-based form fields. */
 .contact {
     padding-block: var(--section-space);
     background: linear-gradient(110deg, rgba(8, 70, 59, 0.15), transparent 58%);
 }
-
 .contact-grid {
     display: grid;
     grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
     align-items: start;
     gap: clamp(2rem, 4vw, 4rem);
 }
-
 .contact-left,
 .contact-form {
     min-width: 0;
 }
-
 .contact-left .section-title {
     max-width: 100%;
     margin: 0 0 2rem;
@@ -166,20 +136,17 @@
     line-height: 1.04;
     text-wrap: balance;
 }
-
 .contact-left .muted {
     max-width: 32rem;
     margin: 0;
     font-size: 1rem;
     line-height: 1.55;
 }
-
 .contact-form {
     display: grid;
     gap: 1.25rem;
     width: 100%;
 }
-
 .form-row {
     display: grid;
     gap: 0.65rem;
@@ -188,17 +155,14 @@
     border-top: 1px solid var(--color-border);
     transition: border-color var(--transition-ui);
 }
-
 .form-row:focus-within {
     border-color: var(--color-accent);
 }
-
 .form-label {
     color: var(--color-accent);
     font-family: var(--font-mono);
     font-size: 1rem;
 }
-
 .form-row input,
 .form-row textarea {
     width: 100%;
@@ -210,13 +174,11 @@
     font-size: 0.95rem;
     resize: vertical;
 }
-
 .form-row input::placeholder,
 .form-row textarea::placeholder {
     color: var(--color-text-muted);
     opacity: 1;
 }
-
 .form-checkbox {
     display: flex;
     align-items: flex-start;
@@ -226,24 +188,20 @@
     font-size: 0.85rem;
     line-height: 1.45;
 }
-
 .form-checkbox input {
     flex: 0 0 auto;
     margin-top: 0.15rem;
     accent-color: var(--color-accent);
 }
-
 .form-actions {
     display: flex;
     justify-content: flex-end;
 }
-
 .form-actions .button {
     min-width: 9rem;
     padding: 0.7rem 1.35rem;
     font-size: 0.9rem;
 }
-
 .form-actions .button:disabled {
     cursor: not-allowed;
     opacity: 0.45;
@@ -254,7 +212,6 @@
     .contact-grid {
         gap: 2rem;
     }
-
     .contact-left .section-title {
         font-size: clamp(2.5rem, 3.5vw, 3.25rem);
     }
@@ -265,26 +222,22 @@
     padding-block: 3.5rem;
     background: var(--color-background);
 }
-
 .footer-inner {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     align-items: center;
     gap: 2.5rem;
 }
-
 .footer-left {
     display: flex;
     align-items: center;
     gap: 1.5rem;
 }
-
 .footer-left .muted {
     max-width: 15rem;
     font-size: 0.85rem;
     line-height: 1.5;
 }
-
 .footer-center {
     justify-content: center;
     color: var(--color-accent);
@@ -292,7 +245,6 @@
     font-size: 0.85rem;
     white-space: nowrap;
 }
-
 .footer-right {
     display: flex;
     align-items: flex-end;
@@ -301,7 +253,6 @@
     gap: 0.45rem !important;
     font-size: 0.9rem;
 }
-
 .footer-right .muted {
     display: none;
 }
@@ -311,7 +262,6 @@
     .hero {
         background: var(--gradient-widescreen);
     }
-
     .about,
     .projects,
     .section.testimonials,
@@ -322,37 +272,30 @@
 
 /* @tablet-stack Keep the desktop grid from collapsing into narrow columns before mobile refinements. */
 @media (max-width: 991px) {
-
     .about-grid,
     .skills-grid,
     .contact-grid {
         grid-template-columns: minmax(0, 1fr);
     }
-
     .about-photo,
     .about-copy {
         max-width: 38rem;
         margin-inline: auto;
     }
-
     .skills-icons {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-
     .project-row {
         flex-wrap: wrap;
         gap: 0.5rem 1.5rem;
     }
-
     .project-meta {
         text-align: left;
     }
-
     .footer-inner {
         grid-template-columns: minmax(0, 1fr);
         justify-items: start;
     }
-
     .footer-right {
         align-items: flex-start;
     }
@@ -361,144 +304,74 @@
 
 /* @mobile-sections Stack testimonials, contact, and footer for narrow screens. */
 @media (max-width: 767px) {
-    .section {
-        scroll-margin-top: 1rem;
-    }
-
-    .section.testimonials .section-title {
-        margin-bottom: 2rem;
-        padding-inline: 1.25rem;
-        font-size: 1.2rem;
-    }
-
-    .testimonials-wrap>.testimonials {
-        justify-content: center;
-        padding-inline: 1.25rem;
-    }
-
-    .testimonial {
-        display: none;
-    }
-
-    .testimonial.active {
-        display: flex;
-        width: min(100%, 22rem);
-        min-height: 17rem;
-        flex: 0 0 100%;
-    }
-
-    .testimonial.active::before {
-        top: -1.9rem;
-        left: 0.5rem;
-        font-size: 4.5rem;
-    }
-
-    .testimonial .quote {
-        font-size: 0.9rem;
-    }
-
-    .slider-controls {
-        margin-top: 1.25rem;
-    }
-
-    .contact-grid {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 2rem;
-    }
-
-    .contact-left .section-title {
-        max-width: 12ch;
-        margin-bottom: 1rem;
-        font-size: clamp(2.2rem, 10vw, 3rem);
-        line-height: 1.02;
-    }
-
-    .contact-left .muted {
-        font-size: 0.9rem;
-    }
-
-    .contact-form {
-        gap: 0.8rem;
-    }
-
-    .form-row {
-        padding: 0.9rem 0.25rem;
-    }
-
-    .form-label {
-        font-size: 0.85rem;
-    }
-
-    .form-row input,
-    .form-row textarea {
-        font-size: 0.85rem;
-    }
-
-    .form-checkbox {
-        font-size: 0.72rem;
-    }
-
-    .form-actions {
-        justify-content: center;
-    }
-
-    .site-footer {
-        padding-block: 2rem;
-    }
-
-    .footer-inner {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        align-items: start;
-        gap: 1.5rem;
-    }
-
-    .footer-left {
-        grid-column: 1;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.75rem;
-    }
-
-    .footer-left .logo img {
-        max-width: 7.5rem;
-    }
-
-    .footer-left .muted {
-        font-size: 0.75rem;
-    }
-
-    .footer-center {
-        grid-column: 1 / -1;
-        grid-row: 2;
-        justify-content: center;
-        font-size: 0.7rem;
-        white-space: normal;
-    }
-
-    .footer-right {
-        grid-column: 2;
-        grid-row: 1;
-        align-items: flex-end;
-        gap: 0.4rem !important;
-        font-size: 0.8rem;
-    }
+    .section { scroll-margin-top: 1rem; }
+    .section.testimonials .section-title { margin-bottom: 2rem; padding-inline: 1.25rem; font-size: 1.2rem; }
+    .testimonials-wrap > .testimonials { justify-content: center; padding-inline: 1.25rem; }
+    .testimonial { display: none; }
+    .testimonial.active { display: flex; width: min(100%, 22rem); min-height: 17rem; flex: 0 0 100%; }
+    .testimonial.active::before { top: -1.9rem; left: 0.5rem; font-size: 4.5rem; }
+    .testimonial .quote { font-size: 0.9rem; }
+    .slider-controls { margin-top: 1.25rem; }
+    .contact-grid { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+    .contact-left .section-title { max-width: 12ch; margin-bottom: 1rem; font-size: clamp(2.2rem, 10vw, 3rem); line-height: 1.02; }
+    .contact-left .muted { font-size: 0.9rem; }
+    .contact-form { gap: 0.8rem; }
+    .form-row { padding: 0.9rem 0.25rem; }
+    .form-label { font-size: 0.85rem; }
+    .form-row input, .form-row textarea { font-size: 0.85rem; }
+    .form-checkbox { font-size: 0.72rem; }
+    .form-actions { justify-content: center; }
+    .site-footer { padding-block: 2rem; }
+    .footer-inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: 1.5rem; }
+    .footer-left { grid-column: 1; flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    .footer-left .logo img { max-width: 7.5rem; }
+    .footer-left .muted { font-size: 0.75rem; }
+    .footer-center { grid-column: 1 / -1; grid-row: 2; justify-content: center; font-size: 0.7rem; white-space: normal; }
+    .footer-right { grid-column: 2; grid-row: 1; align-items: flex-end; gap: 0.4rem !important; font-size: 0.8rem; }
+}
+@media (max-width: 380px) {
+    .hero-title { font-size: 2.35rem; }
+    .hero-buttons { gap: 0.5rem !important; }
+    .hero-buttons .button { padding-inline: 0.65rem; font-size: 0.68rem; }
+    .skills-icons { gap: 1.25rem 0.5rem; }
 }
 
-@media (max-width: 380px) {
-    .hero-title {
-        font-size: 2.35rem;
-    }
-
-    .hero-buttons {
-        gap: 0.5rem !important;
-    }
-
-    .hero-buttons .button {
-        padding-inline: 0.65rem;
-        font-size: 0.68rem;
-    }
-
-    .skills-icons {
-        gap: 1.25rem 0.5rem;
-    }
+/* @project-modal Match the Figma project panel while retaining the legal dialog layout. */
+.modal-panel.is-project { width: min(1200px, calc(100vw - 3rem)); max-width: none; max-height: min(90vh, 900px); padding: 0; overflow: auto; border-radius: 2rem; background: linear-gradient(115deg, #1c1c1c 0%, #1b2926 58%, #08463b 100%); }
+.modal-panel.is-project #project-modal-title, .modal-panel.is-project .modal-footer { display: none; }
+.modal-panel.is-project .modal-close { top: 1.25rem; right: 1.5rem; }
+.modal-panel.is-project .modal-body { margin: 0; padding: 0; }
+.modal-close { position: absolute; top: 1.35rem; right: 1.5rem; z-index: 3; width: 2.75rem; height: 2.75rem; border: 0; color: #fff; background: transparent; cursor: pointer; font-size: 2rem; line-height: 1; }
+.project-detail { display: grid; min-height: 34rem; grid-template: "copy preview" 1fr "copy next" auto / minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 1.5rem 3rem; padding: clamp(2rem, 6vw, 5rem); }
+.project-detail-copy { grid-area: copy; min-width: 0; }
+.project-number { margin: 0; color: var(--color-accent); font-size: clamp(4rem, 8vw, 7rem); font-weight: 700; line-height: 0.95; }
+.project-detail-copy h2 { margin: 0 0 2rem; color: var(--color-text); font-family: var(--font-mono); font-size: clamp(2rem, 4.5vw, 3.5rem); font-weight: 700; overflow-wrap: anywhere; }
+.project-detail-copy h3 { margin: 0 0 1rem; color: var(--color-accent); font-family: var(--font-mono); font-size: clamp(1.1rem, 2vw, 1.5rem); }
+.project-description, .project-link-note { color: var(--color-text-muted); line-height: 1.5; }
+.project-technologies { display: flex; flex-wrap: wrap; gap: 1rem; margin-block: 1.5rem; }
+.project-tech { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--color-text); white-space: nowrap; }
+.project-tech img { width: 1.5rem; height: 1.5rem; object-fit: contain; }
+.project-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+.project-actions a, .project-actions button { padding: 0.7rem 1.4rem; border: 1px solid #fff; border-radius: 99px; color: var(--color-text); background: transparent; text-decoration: none; }
+.project-actions a:hover { border-color: var(--color-accent); color: var(--color-accent); }
+.project-actions button:disabled { cursor: not-allowed; opacity: .45; }
+.project-preview { grid-area: preview; display: grid; min-width: 0; min-height: 14rem; aspect-ratio: 1.55; place-items: center; margin: 0; overflow: hidden; border-radius: 1.5rem; background: rgba(255,255,255,.08); }
+.project-preview img { width: 100%; height: 100%; object-fit: contain; }
+.project-preview img[hidden] { display: none; }
+.project-preview-fallback { padding: 2rem; color: var(--color-text-muted); text-align: center; }
+.project-next { grid-area: next; display: inline-flex; align-items: center; justify-self: end; gap: 1rem; padding: 0.5rem 0; border: 0; color: var(--color-accent); background: transparent; cursor: pointer; }
+.project-next span:first-of-type { font-size: 1.75rem; }
+@media (max-width: 767px) {
+    .modal { padding: 0.5rem; }
+    .modal-panel.is-project { width: 100%; max-height: calc(100svh - 1rem); border-radius: 1.25rem; }
+    .project-detail { min-height: 0; grid-template: "preview" auto "copy" auto "next" auto / minmax(0, 1fr); gap: 1.5rem; padding: 1rem; }
+    .project-preview { min-height: 10rem; aspect-ratio: 1.45; margin: 2.25rem 0 0; }
+    .project-number { font-size: 3.8rem; }
+    .project-detail-copy h2 { margin-bottom: 1.25rem; font-size: 2.5rem; }
+    .project-detail-copy h3 { font-size: 1.15rem; }
+    .project-description { font-size: 0.95rem; }
+    .project-technologies { gap: 0.75rem; }
+    .project-tech { font-size: 0.85rem; }
+    .project-next { justify-self: end; }
+    .modal-close { top: 0.65rem; right: 0.65rem; }
 }

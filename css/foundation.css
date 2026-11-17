@@ -6,7 +6,6 @@
     font-style: normal;
     font-display: swap;
 }
-
 @font-face {
     font-family: "Karla";
     src: url("../assets/fonts/Karla-VariableFont_wght.woff2") format("woff2");
@@ -57,13 +56,11 @@
 *::after {
     box-sizing: border-box;
 }
-
 html {
     min-width: 320px;
     scroll-behavior: smooth;
     background: var(--color-background);
 }
-
 body {
     min-width: 320px;
     min-height: 100vh;
@@ -75,28 +72,23 @@ body {
     font-weight: 400;
     line-height: 1.5;
 }
-
 img,
 svg {
     display: block;
     max-width: 100%;
 }
-
 img {
     height: auto;
 }
-
 button,
 input,
 textarea,
 select {
     font: inherit;
 }
-
 a {
     color: inherit;
 }
-
 :focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 4px;
@@ -109,12 +101,10 @@ a {
     margin-inline: auto;
     padding-inline: var(--layout-gutter);
 }
-
 .section {
     width: 100%;
     scroll-margin-top: var(--space-8);
 }
-
 /* @header Preserve the existing logo and navigation treatment. */
 header {
     position: absolute;
@@ -125,19 +115,16 @@ header {
     font-family: var(--font-mono);
     font-size: 1.25rem;
 }
-
 .logo img {
     width: auto;
     height: 48px;
 }
-
 .nav-links a,
 .link {
     color: inherit;
     text-decoration: none;
     transition: color var(--transition-ui);
 }
-
 .nav-links a:hover,
 .link:hover,
 .site-footer a:hover {
@@ -153,24 +140,20 @@ header {
     height: 100svh;
     background: var(--gradient-hero);
 }
-
 .hero-inner {
     position: relative;
     z-index: 2;
     text-align: center;
 }
-
 .hero-role {
     font-family: var(--font-mono);
     font-size: clamp(1.5rem, 2.6vw, 2.5rem);
 }
-
 .hero-title {
     font-size: var(--font-size-hero);
     font-weight: 700;
     line-height: 1.1;
 }
-
 .button {
     display: inline-flex;
     align-items: center;
@@ -183,7 +166,6 @@ header {
     text-decoration: none;
     transition: border-color var(--transition-ui), color var(--transition-ui), background-color var(--transition-ui);
 }
-
 .button:hover {
     border-color: var(--color-accent);
     color: var(--color-accent);
@@ -198,7 +180,6 @@ header {
     height: 100%;
     overflow: hidden;
 }
-
 .ribbon {
     position: absolute;
     bottom: 64px;
@@ -218,22 +199,15 @@ header {
     transform: rotate(-3deg);
     transform-origin: center;
 }
-
 .ribbon-track {
     white-space: nowrap;
     will-change: transform;
     animation: ribbon-scroll var(--ribbon-duration, 16s) linear infinite;
     transform: translate3d(0, 0, 0);
 }
-
 @keyframes ribbon-scroll {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
 }
 
 /* @hero-details Style the vertical links and scroll indicators. */
@@ -241,45 +215,33 @@ header {
     writing-mode: vertical-lr;
     transform: rotate(180deg);
 }
-
 .hero-bar,
 .scroll-bar {
     width: 1px;
 }
-
 .hero-bar {
     height: 186px;
     background: var(--color-text);
 }
-
 .scroll-bar {
     height: 240px;
     background: var(--color-accent);
 }
-
 .scroll-button {
     padding: var(--space-2);
     border: 1px solid var(--color-accent);
     border-radius: 32px;
 }
-
 .arrow-img {
     transform-origin: center;
     animation: bounce 500ms linear infinite alternate;
 }
-
 .hero-links {
     z-index: 256;
 }
-
 @keyframes bounce {
-    from {
-        transform: translateY(8px);
-    }
-
-    to {
-        transform: translateY(-2px);
-    }
+    from { transform: translateY(8px); }
+    to { transform: translateY(-2px); }
 }
 
 /* @language-switch Style the compact EN/DE control. */
@@ -295,11 +257,9 @@ header {
     line-height: 1.2;
     text-align: center;
 }
-
 .lang-switch:hover {
     border-color: var(--color-text);
 }
-
 .lang-option {
     position: relative;
     z-index: 2;
@@ -310,16 +270,13 @@ header {
     cursor: pointer;
     transition: color var(--transition-ui);
 }
-
 .lang-option:not(.active) {
     color: rgba(61, 207, 182, 0.5);
     font-weight: 700;
 }
-
 .lang-option:not(.active):hover {
     color: var(--color-accent);
 }
-
 .lang-indicator {
     position: absolute;
     top: 0;
@@ -331,7 +288,6 @@ header {
     background: var(--color-accent);
     transition: transform var(--transition-ui);
 }
-
 .lang-switch[data-active="de"] .lang-indicator {
     transform: translateX(100%);
 }
@@ -348,15 +304,12 @@ header {
     justify-content: center;
     isolation: isolate;
 }
-
 .modal.open {
     display: flex;
 }
-
 body.modal-open {
     overflow: hidden;
 }
-
 .modal-backdrop {
     position: absolute;
     inset: 0;
@@ -365,7 +318,6 @@ body.modal-open {
     -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
 }
-
 .modal-panel {
     position: relative;
     z-index: 1;
@@ -388,7 +340,6 @@ body.modal-open {
     background: transparent;
     font-size: 1rem;
 }
-
 .footer-inner {
     display: flex;
     align-items: center;
@@ -396,7 +347,6 @@ body.modal-open {
     flex-wrap: wrap;
     gap: var(--space-5);
 }
-
 .footer-left,
 .footer-center,
 .footer-right {
@@ -404,7 +354,6 @@ body.modal-open {
     align-items: center;
     gap: var(--space-5);
 }
-
 .site-footer a {
     color: inherit;
     text-decoration: none;
@@ -417,11 +366,9 @@ body.modal-open {
         background: var(--gradient-widescreen);
         background-attachment: fixed;
     }
-
     .container {
         max-width: var(--layout-content-max);
     }
-
     .ribbon-wrapper {
         width: 100%;
     }
@@ -432,7 +379,6 @@ body.modal-open {
     html {
         scroll-behavior: auto;
     }
-
     .ribbon-track,
     .arrow-img {
         animation: none;
