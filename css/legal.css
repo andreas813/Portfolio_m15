@@ -1,0 +1,21 @@
+/* @legal-pages Style the standalone legal pages using the portfolio design tokens. */
+.legal-page { min-height: 70vh; padding-block: 9rem 5rem; background: var(--gradient-widescreen); }
+.legal-container { max-width: 68rem; }
+.legal-back { display: inline-block; margin-bottom: 2rem; color: var(--color-accent); text-decoration: none; }
+.legal-title { margin: 0 0 2rem; color: var(--color-accent); font-family: var(--font-mono); font-size: clamp(2.4rem, 6vw, 4.5rem); line-height: 1.1; }
+.legal-draft { margin: 0 0 2.5rem; padding: 1rem 1.25rem; border: 1px solid rgba(255, 190, 80, .55); border-radius: .75rem; color: #ffe1ad; background: rgba(120, 75, 0, .16); }
+.legal-block { margin-block: 2rem; }
+.legal-block h2 { margin-bottom: .75rem; color: var(--color-text); font-family: var(--font-mono); font-size: 1.25rem; }
+.legal-block p { margin-bottom: 1rem; color: var(--color-text-muted); line-height: 1.7; overflow-wrap: anywhere; }
+.legal-block strong { color: var(--color-text); }
+.legal-language { display: none; }
+html[lang="de"] .legal-language[data-lang-content="de"], html[lang="en"] .legal-language[data-lang-content="en"] { display: block; }
+.legal-document .site-footer { background: var(--color-background); }
+@media (max-width: 767px) {
+    .legal-page { padding-block: 7rem 3rem; }
+    .legal-title { margin-bottom: 1.5rem; }
+    .legal-block { margin-block: 1.5rem; }
+    .legal-block h2 { font-size: 1.05rem; }
+    .legal-block p { font-size: .95rem; }
+    .legal-draft { font-size: .85rem; }
+}
