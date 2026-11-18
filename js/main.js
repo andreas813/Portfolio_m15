@@ -4,7 +4,13 @@ const translations = {
         nav_about: "About me",
         nav_skills: "Skills",
         nav_projects: "Projects",
+        legal_back: "← Back to portfolio",
+        imprint_title: "Legal Notice",
+        imprint_draft: "Draft: complete the marked provider details and check the applicable legal requirements before publishing this page.",
+        privacy_title: "Privacy Policy",
+        privacy_draft: "Working draft: hosting, email delivery, retention periods and provider details must be verified before publication.",
         hero_role: "Frontend Developer",
+        hero_email: "Contact form",
         hero_btn_work: "Check my work",
         hero_btn_contact: "Contact me",
         ribbon_1: "Available for remote work",
@@ -40,7 +46,10 @@ const translations = {
         placeholder_email: "youremail@email.com",
         label_message: "Tell me about the role or project:",
         placeholder_message: "Hello Andreas, I am interested in...",
-        privacy_text: "I’ve read the privacy policy and agree to the processing of my data as outlined.",
+        privacy_text: "I have read the privacy notice.",
+        privacy_link: "Privacy notice",
+        footer_imprint: "Legal notice",
+        footer_privacy: "Privacy",
         btn_submit: "Say Hello",
         footer_role: "Web Developer — North Rhine-Westphalia Germany"
     },
@@ -48,7 +57,13 @@ const translations = {
         nav_about: "Über mich",
         nav_skills: "Fähigkeiten",
         nav_projects: "Projekte",
+        legal_back: "← Zurück zum Portfolio",
+        imprint_title: "Impressum",
+        imprint_draft: "Entwurf: Ergänze die markierten Anbieterangaben und prüfe die einschlägigen gesetzlichen Anforderungen vor einer Veröffentlichung.",
+        privacy_title: "Datenschutzerklärung",
+        privacy_draft: "Arbeitsentwurf: Hosting, E-Mail-Versand, Speicherdauern und Anbieterangaben müssen vor Veröffentlichung geprüft werden.",
         hero_role: "Frontend Developer",
+        hero_email: "Kontaktformular",
         hero_btn_work: "Projekte ansehen",
         hero_btn_contact: "Kontakt aufnehmen",
         ribbon_1: "Verfügbar für Remotearbeit",
@@ -84,34 +99,12 @@ const translations = {
         placeholder_email: "deine@email.com",
         label_message: "Erzähl mir von der Rolle oder dem Projekt:",
         placeholder_message: "Hallo Andreas, ich interessiere mich für...",
-        privacy_text: "Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
+        privacy_text: "Ich habe die Datenschutzhinweise zur Kenntnis genommen.",
+        privacy_link: "Datenschutzhinweise",
+        footer_imprint: "Impressum",
+        footer_privacy: "Datenschutz",
         btn_submit: "Nachricht senden",
         footer_role: "Web Developer — Nordrhein-Westfalen Deutschland"
-    }
-};
-
-/* @data Keep legal copy separate from modal behavior. */
-const legalTexts = {
-    imprint: {
-        title: "Impressum",
-        content: `
-            <p><strong>Angaben gemäß § 5 TMG / Pflichtangaben:</strong></p>
-            <p><strong>Name:</strong> Andreas<br>
-            <strong>Wohnhaft in:</strong> Nordrhein-Westfalen, Deutschland<br>
-            <strong>Kontakt:</strong> E-Mail über das Kontaktformular dieser Website</p>
-            <hr class="my-3">
-            <p><strong>Hinweis zum Projekt:</strong><br>
-            Diese Website ist ein studentisches Übungsprojekt im Rahmen einer Weiterbildung zum Frontend Developer. Es handelt sich hierbei um ein nicht-kommerzielles Portfolio ohne redaktionelle Inhalte oder den Verkauf von Waren und Dienstleistungen.</p>
-            <p><strong>Streitbeilegung:</strong><br>
-            Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>`
-    },
-    privacy: {
-        title: "Datenschutzerklärung",
-        content: `
-            <p><strong>1. Datenschutz auf einen Blick</strong></p>
-            <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen.</p>
-            <p><strong>2. Hosting & Kontaktformular</strong></p>
-            <p>Diese Website wird im Rahmen eines Weiterbildungsprojekts betrieben. Wenn Sie mir per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben zur Bearbeitung der Anfrage gespeichert und nicht an Dritte weitergegeben.</p>`
     }
 };
 
@@ -122,8 +115,7 @@ function initializePortfolio() {
     initializeRibbon();
     initializeMobileNavigation();
     initializeLanguageSwitcher();
-    initializeContactForm();
-    initializeLegalModals();
+    initializeProjectModalControls();
 }
 
 /** @function initializeRibbon Duplicate the ribbon items for a continuous animation. */
@@ -174,67 +166,15 @@ function updateTranslatedPlaceholders(language) {
     });
 }
 
-/** @function initializeContactForm Bind validation and the current demo submission feedback. */
-function initializeContactForm() {
-    const form = document.querySelector(".contact-form");
-    if (!form) return;
-    form.querySelectorAll("input, textarea").forEach((field) => field.addEventListener("blur", markFieldTouched));
-    form.addEventListener("input", () => updateFormState(form));
-    form.addEventListener("change", () => updateFormState(form));
-    form.addEventListener("submit", handleFormSubmit);
-    updateFormState(form);
-}
-
-/** @function markFieldTouched Mark a field after the visitor leaves it. */
-function markFieldTouched(event) {
-    event.currentTarget.classList.add("touched");
-}
-
-/** @function updateFormState Enable submission only while native form validation passes. */
-function updateFormState(form) {
-    const button = form.querySelector("button[type='submit']");
-    if (button) button.disabled = !form.checkValidity();
-}
-
-/** @function handleFormSubmit Show the existing front-end demo feedback for valid input. */
-function handleFormSubmit(event) {
-    event.preventDefault();
-    const form = event.currentTarget;
-    if (!form.checkValidity()) return;
-    showFormSuccess(form);
-}
-
-/** @function showFormSuccess Replace the form with its current demo success message. */
-function showFormSuccess(form) {
-    form.innerHTML = `<div class="alert alert-success py-4 text-center" role="alert">
-        <h4 class="alert-heading">Message sent successfully!</h4>
-        <p class="mb-0">Thank you for your message, Andreas will get back to you soon.</p>
-    </div>`;
-}
-
-/** @function initializeLegalModals Connect legal links, close controls, and Escape handling. */
-function initializeLegalModals() {
+/** @function initializeProjectModalControls Bind project dialog close and keyboard controls. */
+function initializeProjectModalControls() {
     ["modal-close", "modal-close-2", "modal-backdrop"].forEach(bindModalClose);
-    ["link-imprint", "link-privacy"].forEach(bindLegalLink);
     document.addEventListener("keydown", handleModalKeydown);
 }
 
-/** @function bindModalClose Bind one close control when it exists. */
+/** @function bindModalClose Bind one dialog close control when it exists. */
 function bindModalClose(id) {
     document.getElementById(id)?.addEventListener("click", closeModal);
-}
-
-/** @function bindLegalLink Bind one legal footer link when it exists. */
-function bindLegalLink(id) {
-    document.getElementById(id)?.addEventListener("click", openLegalText);
-}
-
-/** @function openLegalText Resolve the selected legal text and open its modal. */
-function openLegalText(event) {
-    event.preventDefault();
-    const key = event.currentTarget.id.replace("link-", "");
-    const text = legalTexts[key];
-    if (text) openModal(text.title, text.content);
 }
 
 /** @function openModal Populate and reveal the modal above the blurred backdrop. */
