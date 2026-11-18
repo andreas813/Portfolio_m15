@@ -1,0 +1,7 @@
+# Disable public directory listings.
+Options -Indexes
+
+# Protect the private mail configuration and hidden server files.
+<FilesMatch "^(contact-config(\.example)?\.php|\.ht.*)$">
+    Require all denied
+</FilesMatch>
