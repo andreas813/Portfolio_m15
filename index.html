@@ -60,7 +60,7 @@
                 </div>
                 <aside class="hero-links d-flex flex-column justify-content-end align-items-center gap-4">
                     <div class="hero-email">
-                        <a href="mailto:andreas@example.com" class="link">andreas@example.com</a>
+                        <a href="#contact" class="link" data-i18n="hero_email">Contact form</a>
                     </div>
                     <div class="hero-social d-flex flex-column gap-3">
                         <a href="https://github.com/andreas813" target="_blank" rel="noopener noreferrer">
@@ -177,21 +177,21 @@
                 <p class="muted" data-i18n="projects_desc">Explore a selection of my work — interact with projects to see details.</p>
 
                 <div class="projects-list" aria-label="Featured projects">
-                    <div class="project-item" role="button" aria-haspopup="dialog" tabindex="0" data-preview="assets/images/project1.jpg" data-index="0" data-title="Join" data-tech="HTML | CSS | JavaScript">
+                    <div class="project-item" role="button" aria-haspopup="dialog" tabindex="0" data-preview="assets/images/project1.jpg" data-index="0" data-title="Join" data-tech="HTML | CSS | JavaScript | Git | Firebase" data-kind="Teamprojekt" data-category="Pflicht" data-format="Portfolio" data-duration="5 Wochen" data-description-de="Teamprojekt: Zusammen mit anderen Teilnehmern aus der Weiterbildung baust du eine Web-App mit HTML, CSS, JavaScript, Git und Firebase. Ihr erstellt ein Projektmanagement-Tool, um den Status und die Verantwortlichkeiten von Aufgaben zu visualisieren." data-description-en="Team project: Together with other participants in the training programme, you build a web app using HTML, CSS, JavaScript, Git, and Firebase. You create a project management tool that visualizes task status and responsibilities.">
                         <div class="project-row">
                             <div class="project-title">Join</div>
-                            <div class="project-meta">HTML | CSS | JavaScript</div>
+                            <div class="project-meta">HTML | CSS | JavaScript | Git | Firebase</div>
                         </div>
                     </div>
 
-                    <div class="project-item" role="button" aria-haspopup="dialog" tabindex="0" data-preview="assets/images/project2.jpg" data-index="1" data-title="Sharkie" data-tech="HTML | CSS | JavaScript" data-description-de="Ein objektorientiertes Jump-&amp;-Run-Spiel für den Webbrowser, in dem du einen kleinen Hai steuerst." data-description-en="An object-oriented browser game in which you guide a little shark through a jump-and-run adventure." data-live="https://andreas-w.developerakademie.net/m12/Sharkie-m12-/index.html">
+                    <div class="project-item" role="button" aria-haspopup="dialog" tabindex="0" data-preview="assets/images/project2.jpg" data-index="1" data-title="Sharkie" data-tech="HTML | CSS | JavaScript" data-description-de="Ein objektorientiertes Jump-&amp;-Run-Spiel für den Webbrowser, in dem du einen kleinen Hai steuerst und dich durch verschiedene Spielsituationen bewegst." data-description-en="An object-oriented browser-based jump-and-run game in which you control a small shark and make your way through different gameplay challenges." data-live="https://andreas-w.developerakademie.net/m12/Sharkie-m12-/index.html" data-github="https://github.com/andreas813/Sharkie-m12-">
                         <div class="project-row">
                             <div class="project-title">Sharkie</div>
                             <div class="project-meta">HTML | CSS | JavaScript</div>
                         </div>
                     </div>
 
-                    <div class="project-item" role="button" aria-haspopup="dialog" tabindex="0" data-preview="assets/images/project3.jpg" data-index="2" data-title="Pokédex" data-tech="HTML | CSS | JavaScript" data-description-de="Interaktives Monster-Lexikon mit Anbindung an die PokéAPI. Die Anwendung ruft Pokémon-Daten ab, verarbeitet die API-Antworten und stellt die Informationen übersichtlich dar." data-description-en="An interactive Pokémon encyclopedia connected to the PokéAPI. It retrieves Pokémon data, processes the API responses, and presents the information in a clear format." data-live="https://andreas-w.developerakademie.net/m09/pokeapi-pokedex/index.html">
+                    <div class="project-item" role="button" aria-haspopup="dialog" tabindex="0" data-preview="assets/images/project3.jpg" data-index="2" data-title="Pokédex" data-tech="HTML | CSS | JavaScript" data-description-de="Interaktives Monster-Lexikon mit Anbindung an die PokéAPI. Die Anwendung ruft Pokémon-Daten ab, verarbeitet die API-Antworten und stellt die Informationen übersichtlich dar." data-description-en="An interactive Pokémon encyclopedia connected to the PokéAPI. It retrieves Pokémon data, processes the API responses, and presents the information in a clear format." data-live="https://andreas-w.developerakademie.net/m09/pokeapi-pokedex/index.html" data-github="https://github.com/andreas813/Poke-API_Pokedex-m9-">
                         <div class="project-row">
                             <div class="project-title">Pokédex</div>
                             <div class="project-meta">HTML | CSS | JavaScript</div>
@@ -245,29 +245,37 @@
                 </div>
 
                 <form class="contact-form" action="contact.php" method="POST" novalidate>
-                    <label class="form-row">
+                    <label class="form-row" for="contact-name">
                         <span class="form-label" data-i18n="label_name">What's your name?</span>
-                        <input type="text" name="name" required placeholder="Your name goes here" data-i18n-placeholder="placeholder_name">
+                        <input id="contact-name" type="text" name="name" required minlength="2" maxlength="100" autocomplete="name" placeholder="Your name goes here" data-i18n-placeholder="placeholder_name" aria-describedby="error-name">
+                        <span class="form-error" id="error-name" aria-live="polite"></span>
                     </label>
-
-                    <label class="form-row">
+                    <label class="form-row" for="contact-email">
                         <span class="form-label" data-i18n="label_email">What's your email?</span>
-                        <input type="email" name="email" required placeholder="youremail@email.com" data-i18n-placeholder="placeholder_email">
+                        <input id="contact-email" type="email" name="email" required maxlength="254" autocomplete="email" placeholder="youremail@email.com" data-i18n-placeholder="placeholder_email" aria-describedby="error-email">
+                        <span class="form-error" id="error-email" aria-live="polite"></span>
                     </label>
-
-                    <label class="form-row">
-                        <span class="form-label" data-i18n="label_message">How can I help you?</span>
-                        <textarea name="message" rows="4" placeholder="Hello Andreas, I am interested in..." data-i18n-placeholder="placeholder_message"></textarea>
+                    <label class="form-row" for="contact-message">
+                        <span class="form-label" data-i18n="label_message">Tell me about the role or project:</span>
+                        <textarea id="contact-message" name="message" rows="4" required minlength="10" maxlength="5000" placeholder="Hello Andreas, I am interested in..." data-i18n-placeholder="placeholder_message" aria-describedby="error-message"></textarea>
+                        <span class="form-error" id="error-message" aria-live="polite"></span>
                     </label>
-
-                    <label class="form-checkbox">
-                        <input type="checkbox" name="privacy" required>
-                        <span data-i18n="privacy_text">I’ve read the privacy policy and agree to the processing of my data as outlined.</span>
-                    </label>
-
+                    <div class="form-privacy-row">
+                        <label class="form-checkbox" for="contact-privacy">
+                            <input id="contact-privacy" type="checkbox" name="privacy" value="1" required aria-describedby="error-privacy">
+                            <span data-i18n="privacy_text">I have read the privacy notice.</span>
+                        </label>
+                        <a class="privacy-link" href="datenschutz.html" data-i18n="privacy_link">Privacy notice</a>
+                        <span class="form-error" id="error-privacy" aria-live="polite"></span>
+                    </div>
+                    <div class="form-honeypot" aria-hidden="true">
+                        <label for="contact-website">Leave this field empty</label>
+                        <input id="contact-website" type="text" name="website" tabindex="-1" autocomplete="off">
+                    </div>
                     <div class="form-actions">
                         <button type="submit" class="button" data-i18n="btn_submit" disabled>Say Hello</button>
                     </div>
+                    <p class="form-status" id="contact-status" role="status" aria-live="polite"></p>
                 </form>
             </div>
         </section>
@@ -287,13 +295,13 @@
                 <a href="https://github.com/andreas813" target="_blank" rel="noopener noreferrer">GitHub</a>
                 <a href="https://www.linkedin.com/in/andreas-w-dev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 <span class="muted">|</span>
-                <a href="#" id="link-imprint">Impressum</a>
-                <a href="#" id="link-privacy">Datenschutz</a>
+                <a href="impressum.html" data-i18n="footer_imprint">Impressum</a>
+                <a href="datenschutz.html" data-i18n="footer_privacy">Datenschutz</a>
             </div>
         </div>
     </footer>
 
-    <!-- Project and legal dialogs share the existing accessible overlay. -->
+    <!-- Project details use one reusable accessible dialog. -->
     <div id="project-modal" class="modal" aria-hidden="true" aria-modal="true" role="dialog" aria-labelledby="project-modal-title">
         <div class="modal-backdrop" id="modal-backdrop"></div>
         <section class="modal-panel" role="document" tabindex="-1">
@@ -309,6 +317,7 @@
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/interactions.js"></script>
+    <script src="js/contact.js"></script>
 </body>
 
 </html>
