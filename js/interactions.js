@@ -1,7 +1,7 @@
 /* @module Handle project-detail dialogs and testimonial carousel interactions. */
 const projectTechnologyIcons = {
     HTML: "html-64.svg", CSS: "css-64.svg", JavaScript: "javascript-64.svg",
-    Angular: "angular-64.svg", Firebase: "firebase-64.svg", TypeScript: "typescript-64.svg"
+    Git: "git-64.svg", Angular: "angular-64.svg", Firebase: "firebase-64.svg", TypeScript: "typescript-64.svg"
 };
 let activeProjectIndex = 0;
 let projectReturnFocus = null;
@@ -48,14 +48,23 @@ function buildProjectMarkup(item, index, total) {
     const preview = escapeProjectText(item.dataset.preview || "");
     const technologies = buildProjectTechnologies(item.dataset.tech || "");
     const actions = buildProjectActions(item, labels);
+    const badges = buildProjectBadges(item, language);
     const description = escapeProjectText(item.dataset[`description${language === "de" ? "De" : "En"}`] || labels.pending);
     const number = String(index + 1).padStart(2, "0");
-    return `<div class="project-detail"><div class="project-detail-copy"><p class="project-number">${number}</p><h2>${title}</h2><h3>${labels.question}</h3><p class="project-description">${description}</p><div class="project-technologies">${technologies}</div><div class="project-actions">${actions}</div></div><figure class="project-preview"><img src="${preview}" alt="${title} project preview"><div class="project-preview-fallback" hidden>${labels.previewMissing}</div></figure><button class="project-next" type="button" data-project-next>${labels.next}<span aria-hidden="true">→</span><span class="visually-hidden">${index + 2 > total ? 1 : index + 2}</span></button></div>`;
+    return `<div class="project-detail"><div class="project-detail-copy"><p class="project-number">${number}</p><h2>${title}</h2><h3>${labels.question}</h3>${badges}<p class="project-description">${description}</p><div class="project-technologies">${technologies}</div><div class="project-actions">${actions}</div></div><figure class="project-preview"><img src="${preview}" alt="${title} project preview"><div class="project-preview-fallback" hidden>${labels.previewMissing}</div></figure><button class="project-next" type="button" data-project-next>${labels.next}<span aria-hidden="true">→</span><span class="visually-hidden">${index + 2 > total ? 1 : index + 2}</span></button></div>`;
 }
 
 /** @function projectModalLabels Return localized interface labels without inventing project facts. */
 function projectModalLabels(language) {
-    return language === "de" ? {question:"Worum geht es in diesem Projekt?",pending:"Eine Projektbeschreibung wird ergänzt, sobald die finalen Projektdetails feststehen.",linksPending:"Projektlinks werden ergänzt, sobald die finalen URLs vorliegen.",previewMissing:"Projektvorschau derzeit nicht verfügbar.",next:"Nächstes Projekt",github:"GitHub",live:"Live Test"} : {question:"What is this project about?",pending:"A project description will be added once the final project details are available.",linksPending:"Project links will be added once the final URLs are available.",previewMissing:"Project preview is currently unavailable.",next:"Next project",github:"GitHub",live:"Live Test"};
+    return language === "de" ? {team:"Teamprojekt", required:"Pflicht", portfolio:"Portfolio", duration:"5 Wochen", question:"Worum geht es in diesem Projekt?",pending:"Eine Projektbeschreibung wird ergänzt, sobald die finalen Projektdetails feststehen.",linksPending:"Projektlinks werden ergänzt, sobald die finalen URLs vorliegen.",previewMissing:"Projektvorschau derzeit nicht verfügbar.",next:"Nächstes Projekt",github:"GitHub",live:"Live Test"} : {team:"Team project", required:"Required", portfolio:"Portfolio", duration:"5 weeks", question:"What is this project about?",pending:"A project description will be added once the final project details are available.",linksPending:"Project links will be added once the final URLs are available.",previewMissing:"Project preview is currently unavailable.",next:"Next project",github:"GitHub",live:"Live Test"};
+}
+
+/** @function buildProjectBadges Render optional project metadata supplied on the project row. */
+function buildProjectBadges(item, language) {
+    const labels = projectModalLabels(language);
+    const values = [[item.dataset.kind, labels.team], [item.dataset.category, labels.required], [item.dataset.format, labels.portfolio], [item.dataset.duration, labels.duration]];
+    const badges = values.filter(([value]) => value).map(([, label]) => `<span>${escapeProjectText(label)}</span>`);
+    return badges.length ? `<div class="project-badges">${badges.join("")}</div>` : "";
 }
 
 /** @function buildProjectTechnologies Render the technology labels and existing SVG icons. */
