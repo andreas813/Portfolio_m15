@@ -26,6 +26,8 @@ const translations = {
         skills_kicker: "Technologies",
         skills_title: "Skill Set",
         skills_desc: "A short introduction of my current skills. Since I'm ready to learn new things, there may well be more to come on this topic.",
+        skills_prompt: "You need another skill?",
+        skills_invite: "Feel free to contact me. I look forward to expanding my previous knowledge.",
         skills_btn: "Let's Talk",
         projects_kicker: "Portfolio",
         projects_title: "Featured Projects",
@@ -40,6 +42,7 @@ const translations = {
         contact_kicker: "Contact me",
         contact_title: "Let's work together",
         contact_desc: "Got a problem to solve? Feel free to reach out with a description of the role you envision for me.",
+        contact_scope: "This form is provided for the temporary training assessment. I am not currently looking for a new job or project.",
         label_name: "What's your name?",
         placeholder_name: "Your name goes here",
         label_email: "What's your email?",
@@ -51,7 +54,8 @@ const translations = {
         footer_imprint: "Legal notice",
         footer_privacy: "Privacy",
         btn_submit: "Say Hello",
-        footer_role: "Web Developer — North Rhine-Westphalia Germany"
+        footer_role: "Web Developer",
+        footer_location: "North Rhine-Westphalia, Germany"
     },
     de: {
         nav_about: "Über mich",
@@ -79,6 +83,8 @@ const translations = {
         skills_kicker: "Technologien",
         skills_title: "Fähigkeiten",
         skills_desc: "Eine kurze Einführung in meine aktuellen Skills. Da ich immer bereit bin, Neues zu lernen, kommt hier sicher noch mehr hinzu.",
+        skills_prompt: "Du brauchst noch weitere Skills?",
+        skills_invite: "Melde dich gerne bei mir. Ich freue mich darauf, mein bisheriges Wissen zu erweitern.",
         skills_btn: "Kontakt aufnehmen",
         projects_kicker: "Portfolio",
         projects_title: "Ausgewählte Projekte",
@@ -93,6 +99,7 @@ const translations = {
         contact_kicker: "Kontakt",
         contact_title: "Lass uns zusammenarbeiten",
         contact_desc: "Gibt es Probleme zu lösen? Kontaktiere mich gerne mit einer Beschreibung der Rolle, für die Du dir mich vorstellen kannst.",
+        contact_scope: "Dieses Formular dient der zeitlich begrenzten Prüfungsleistung im Rahmen der Weiterbildung. Ich suche derzeit weder eine neue Stelle noch neue Projektaufträge.",
         label_name: "Wie heißt du?",
         placeholder_name: "Dein Name hier",
         label_email: "Wie lautet deine E-Mail-Adresse?",
@@ -104,7 +111,8 @@ const translations = {
         footer_imprint: "Impressum",
         footer_privacy: "Datenschutz",
         btn_submit: "Nachricht senden",
-        footer_role: "Web Developer — Nordrhein-Westfalen Deutschland"
+        footer_role: "Web Developer",
+        footer_location: "Nordrhein-Westfalen, Deutschland"
     }
 };
 
